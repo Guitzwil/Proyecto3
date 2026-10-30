@@ -8,7 +8,7 @@ package proyecto3_transporte;
  *
  * @author Edgar Mó
  */
-public class Pickup extends Vehiculo {
+public class Pickup extends Vehiculo{
     private String motor;
     private String tipoDeTraccion;
     private double capacidadCargaKg;
@@ -43,6 +43,5 @@ public class Pickup extends Vehiculo {
     public void setCapacidadCargaKg(double capacidadCargaKg) {
         this.capacidadCargaKg = capacidadCargaKg;
     }
-    
     
 }

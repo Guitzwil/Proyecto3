@@ -34,5 +34,4 @@ public class Microbus extends Vehiculo {
         this.esTransporteEscolar = esTransporteEscolar;
     }
     
-    
 }

@@ -33,6 +33,7 @@ public class Bus extends Vehiculo {
     public void setCantidadEjes(int cantidadEjes) {
         this.cantidadEjes = cantidadEjes;
     }
+
     
-    
+   
 }
