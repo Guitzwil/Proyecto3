@@ -10,12 +10,10 @@ package proyecto3_transporte;
  */
 public class Microbus extends Vehiculo {
     private int cantidadPasajeros;
-    private boolean esTransporteEscolar;
     
-    public Microbus(int cantidadPasajeros, boolean esTransporteEscolar, String placa, String estado, double kilometraje, double recargo){
-        super(placa, estado, kilometraje, recargo);
+    public Microbus(int cantidadPasajeros, String placa, double recargo){
+        super(placa, recargo);
         this.cantidadPasajeros = cantidadPasajeros;
-        this.esTransporteEscolar = esTransporteEscolar;
     }
 
     public int getCantidadPasajeros() {
@@ -24,14 +22,6 @@ public class Microbus extends Vehiculo {
 
     public void setCantidadPasajeros(int cantidadPasajeros) {
         this.cantidadPasajeros = cantidadPasajeros;
-    }
-
-    public boolean isEsTransporteEscolar() {
-        return esTransporteEscolar;
-    }
-
-    public void setEsTransporteEscolar(boolean esTransporteEscolar) {
-        this.esTransporteEscolar = esTransporteEscolar;
     }
     
 }

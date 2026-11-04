@@ -10,12 +10,10 @@ package proyecto3_transporte;
  */
 public class Bus extends Vehiculo {
     private int cantidadPasajeros;
-    private int cantidadEjes;
     
-    public Bus(int cantiadPasajeros, int cantidadejes, String placa, String estado, double kilometraje, double recargo){
-        super(placa, estado, kilometraje, recargo);
+    public Bus(int cantidadPasajeros, String placa, double recargo){
+        super(placa, recargo);
         this.cantidadPasajeros = cantidadPasajeros;
-        this.cantidadEjes = cantidadEjes;
     }
 
     public int getCantidadPasajeros() {
@@ -24,16 +22,5 @@ public class Bus extends Vehiculo {
 
     public void setCantidadPasajeros(int cantidadPasajeros) {
         this.cantidadPasajeros = cantidadPasajeros;
-    }
-
-    public int getCantidadEjes() {
-        return cantidadEjes;
-    }
-
-    public void setCantidadEjes(int cantidadEjes) {
-        this.cantidadEjes = cantidadEjes;
-    }
-
-    
-   
+    }   
 }

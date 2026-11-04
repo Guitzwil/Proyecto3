@@ -9,23 +9,13 @@ package proyecto3_transporte;
  * @author Edgar Mó
  */
 public class Pickup extends Vehiculo{
-    private String motor;
     private String tipoDeTraccion;
     private double capacidadCargaKg;
     
-    public Pickup(String motor, String tipoDeTraccion, double capacidadCargaKg, String placa, String estado, double kilometraje, double recargo){
-        super(placa, estado, kilometraje, recargo);
-        this.motor = motor;
+    public Pickup(String tipoDeTraccion, double capacidadCargaKg, String placa, double recargo){
+        super(placa, recargo);
         this.tipoDeTraccion = tipoDeTraccion;
         this.capacidadCargaKg = capacidadCargaKg;
-    }
-
-    public String getMotor() {
-        return motor;
-    }
-
-    public void setMotor(String motor) {
-        this.motor = motor;
     }
 
     public String getTipoDeTraccion() {

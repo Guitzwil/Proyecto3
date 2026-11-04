@@ -13,11 +13,12 @@ public abstract class Vehiculo {
     private String estado;
     private double kilometraje;
     private double recargo;
+    private static final double umbralMantenimiento = 5000;
     
-    public Vehiculo(String placa, String estado, double kilometraje, double recargo){
+    public Vehiculo(String placa, double recargo){
         this.placa = placa;
-        this.estado = estado;
-        this.kilometraje= kilometraje;
+        this.estado = "activo";
+        this.kilometraje = 0;
         this.recargo = recargo;
     }
 
