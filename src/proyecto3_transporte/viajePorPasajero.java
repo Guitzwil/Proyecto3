@@ -13,13 +13,13 @@ import java.time.LocalTime;
  */
 public class viajePorPasajero extends Viaje{
     //atributos
-    private int cantidad;
+    private int pasajeros;
     
     //constructor
 
-    public viajePorPasajero(int cantidad, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
+    public viajePorPasajero(int pasajeros, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
         super(vehiculo, ruta, piloto, fecha, estadoViaje, hora);
-        this.cantidad = cantidad;
+        this.pasajeros = pasajeros;
     }
     
     //metodos

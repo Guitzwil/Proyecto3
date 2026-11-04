@@ -13,19 +13,19 @@ import java.time.LocalTime;
  */
 public class ViajeCarga extends Viaje{
     //atributos 
-    double cantidad;
+    double quintales;
     
     //constructor
 
-    public ViajeCarga(double cantidad, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
+    public ViajeCarga(double quintales, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
         super(vehiculo, ruta, piloto, fecha, estadoViaje, hora);
-        this.cantidad = cantidad;
+        this.quintales = quintales;
     }
     
     //metodos
 
     public double getCantidad() {
-        return cantidad;
+        return quintales;
     }
     
     @Override
