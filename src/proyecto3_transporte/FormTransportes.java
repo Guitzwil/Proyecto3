@@ -720,6 +720,8 @@ public class FormTransportes extends javax.swing.JFrame {
         DefaultComboBoxModel<Vehiculo> modelCBvehiculo = new DefaultComboBoxModel<>();
         for (Vehiculo vehiculo : vehiculos) {
             //se valida que el vehículo no este dado de baja o en mantenimiento
+            if(vehiculo.esEstado("mantenimiento") || vehiculo.esEstado("inactivo"))
+                continue;
             modelCBvehiculo.addElement(vehiculo);
         }
         
@@ -733,6 +735,9 @@ public class FormTransportes extends javax.swing.JFrame {
         //se crea un modelo y se agregan todos los elemntos de la lista
         DefaultComboBoxModel<Piloto> cbPilotosModel = new DefaultComboBoxModel<>();
         for (Piloto piloto : pilotos) {
+            //se valida que el piloto no este dado de baja
+            if(!piloto.isDisponibilidad()) continue;
+            
             cbPilotosModel.addElement(piloto);
         }
         
@@ -746,6 +751,9 @@ public class FormTransportes extends javax.swing.JFrame {
         //se crea un modelo y se agregan todos los elmentos de la lista
         DefaultComboBoxModel<Ruta> modelRutas = new DefaultComboBoxModel<>();
         for (Ruta ruta : rutas) {
+            //se valida que la ruta no este dado de baja
+            if(!ruta.isEstado()) continue;
+            
             modelRutas.addElement(ruta);
         }
         

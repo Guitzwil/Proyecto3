@@ -14,6 +14,7 @@ public class Ruta {
     private String destino;
     private double kilometros;
     private double tarifaBase;
+    private boolean estado;
     
     //constructor
     public Ruta(String origen, String destino, double kilometros, double tarifaBase) {
@@ -21,9 +22,20 @@ public class Ruta {
         this.destino = destino;
         this.kilometros = kilometros;
         this.tarifaBase = tarifaBase;
+        this.estado = true;
     }
  
     //metodos
+    
+    public void setEstado(){
+        if(estado){
+            estado = false;
+            return;
+        }
+        
+        estado = true;
+    }
+    
     public String getOrigen() {
         return origen;
     }
@@ -39,5 +51,9 @@ public class Ruta {
     public double getTarifaBase() {
         return tarifaBase;
     }
-    
+
+    public boolean isEstado() {
+        return estado;
+    }
+
 }

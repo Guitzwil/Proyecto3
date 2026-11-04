@@ -21,11 +21,16 @@ public abstract class Vehiculo {
         this.kilometraje = 0;
         this.recargo = recargo;
     }
-
+    
+    public boolean esEstado(String estado){
+        //valida que el estado sea el mismo
+        return (this.estado.equalsIgnoreCase(estado));
+    }
+    
     public String getPlaca() {
         return placa;
     }
-
+    
     public void setPlaca(String placa) {
         this.placa = placa;
     }
@@ -35,6 +40,14 @@ public abstract class Vehiculo {
     }
 
     public void setEstado(String estado) {
+        //se valida que el estado sea activo, mantenimiento o inactivo
+        if(!estado.equalsIgnoreCase("activo") && !estado.equalsIgnoreCase("mantenimiento") 
+                && !estado.equalsIgnoreCase("inactivo")) return;
+        
+        //si el estdo es el mismo no cambia
+        if(this.estado.equalsIgnoreCase(estado)) return;
+        
+        //cambia el estado
         this.estado = estado;
     }
 
