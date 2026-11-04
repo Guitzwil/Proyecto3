@@ -708,7 +708,9 @@ public class FormTransportes extends javax.swing.JFrame {
     
     //#Region refrescar comboBoxes
     private void cargarComboBoxes(){
-        
+        cargarComboBoxesPiloto();
+        cargarComboBoxesRuta();
+        cargarComboBoxesVehiculo();
     }
     
     private void cargarComboBoxesVehiculo(){
@@ -717,11 +719,38 @@ public class FormTransportes extends javax.swing.JFrame {
         //se crea un modelo y se añaden todos los elmentos de la lista
         DefaultComboBoxModel<Vehiculo> modelCBvehiculo = new DefaultComboBoxModel<>();
         for (Vehiculo vehiculo : vehiculos) {
+            //se valida que el vehículo no este dado de baja o en mantenimiento
             modelCBvehiculo.addElement(vehiculo);
         }
         
         //se le pasa el modelo al cbVehiculo
         cbVehiculo.setModel(modelCBvehiculo);
+    }
+    
+    private void cargarComboBoxesPiloto(){
+        cbPiloto.removeAllItems();
+        
+        //se crea un modelo y se agregan todos los elemntos de la lista
+        DefaultComboBoxModel<Piloto> cbPilotosModel = new DefaultComboBoxModel<>();
+        for (Piloto piloto : pilotos) {
+            cbPilotosModel.addElement(piloto);
+        }
+        
+        //se agrega el modelo al cbPiloto
+        cbPiloto.setModel(cbPilotosModel);
+    }
+    
+    private void cargarComboBoxesRuta(){
+        cbRuta.removeAllItems();
+        
+        //se crea un modelo y se agregan todos los elmentos de la lista
+        DefaultComboBoxModel<Ruta> modelRutas = new DefaultComboBoxModel<>();
+        for (Ruta ruta : rutas) {
+            modelRutas.addElement(ruta);
+        }
+        
+        //se agrega el modelo al cbRura
+        cbRuta.setModel(modelRutas);
     }
     //EndRegion
     
@@ -757,8 +786,8 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.ButtonGroup FiltrarReportePor;
     private javax.swing.JButton btnFiltrarReporte;
     private javax.swing.JButton btnRegistrarViaje;
-    private javax.swing.JComboBox<String> cbPiloto;
-    private javax.swing.JComboBox<String> cbRuta;
+    private javax.swing.JComboBox<Piloto> cbPiloto;
+    private javax.swing.JComboBox<Ruta> cbRuta;
     private javax.swing.JComboBox<String> cbTipoCarga;
     private javax.swing.JComboBox<Vehiculo> cbVehiculo;
     private javax.swing.JButton jButton1;
