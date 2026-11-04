@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author estudiante
  */
-public class Mantenimiento {
+public class Mantenimiento implements Facturable{
     //atributos
     private Vehiculo vehiculo;
     private LocalDate fecha;
@@ -34,6 +34,11 @@ public class Mantenimiento {
 
     public double getCosto() {
         return costo;
+    }
+
+    @Override
+    public double calcularTotal() {
+        return 0;
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package proyecto3_transporte;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -26,6 +27,9 @@ public class FormTransportes extends javax.swing.JFrame {
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
     private ArrayList<Ruta> rutas = new ArrayList<>();
     private ArrayList<Mantenimiento> mantenimientos = new ArrayList<>();
+    
+    //para convertir decimales a solo dos cifras
+    private final DecimalFormat convertirDosDecimales = new DecimalFormat("#.00");
 
     /**
      * Creates new form FormTransportes
@@ -536,6 +540,7 @@ public class FormTransportes extends javax.swing.JFrame {
 
         cbTipoCarga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbTipoCarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione tipo de carga--", "Pasajeros", "Quintales" }));
+        cbTipoCarga.addItemListener(this::cbTipoCargaItemStateChanged);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setText("Cantidad");
@@ -756,12 +761,27 @@ public class FormTransportes extends javax.swing.JFrame {
                 double quintales = (double) spnCantidad.getValue();
                 viajes.add(new ViajeCarga(quintales, vehiculo, ruta, piloto, fecha, hora));
             }
-                
+                 
             
+            //se calcula el costo del viaje y se muestra
+            double costo = viajes.get(viajes.size() - 1).calcularTotal();
+            lblCobroCalculado.setText(convertirDosDecimales.format(costo));
+            
+            //se refresca la tabla y se limpian los campos
+            
+            limpiarViajes();
             
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
         }
     }//GEN-LAST:event_btnRegistrarViajeActionPerformed
+
+    private void cbTipoCargaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTipoCargaItemStateChanged
+        //solo cuando cambia el elemento se actualiza los comboBoxe de vehiculo 
+        if(evt.getStateChange() == java.awt.event.ItemEvent.SELECTED){
+            cargarComboBoxesVehiculo();
+        }
+    }//GEN-LAST:event_cbTipoCargaItemStateChanged
 
     
     //############################## REGIONES ##################################
@@ -847,6 +867,17 @@ public class FormTransportes extends javax.swing.JFrame {
         
         //se agrega el modelo al cbRura
         cbRuta.setModel(modelRutas);
+    }
+    //EndRegion
+    
+    //#Region limpiar campos
+    private void limpiarViajes(){
+        cbTipoCarga.setSelectedIndex(0);
+        cbPiloto.setSelectedIndex(-1);
+        cbRuta.setSelectedIndex(-1);
+        dchFechaViaje.setDate(null);
+        spnHora.setValue("00:00");
+        spnCantidad.setValue(1);
     }
     //EndRegion
     

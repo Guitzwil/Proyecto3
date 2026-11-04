@@ -30,6 +30,6 @@ public class ViajeCarga extends Viaje{
     
     @Override
     public double calcularTotal(){
-        return 6;
+        return (super.getVehiculo().getRecargo() * quintales);
     }
 }
