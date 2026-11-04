@@ -4,6 +4,8 @@
  */
 package proyecto3_transporte;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author CHAPTOPS TACTIC
@@ -11,6 +13,13 @@ package proyecto3_transporte;
 public class FormTransportes extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormTransportes.class.getName());
+    
+    //se inicializan las listas
+    private ArrayList<Piloto> pilotos = new ArrayList<>();
+    private ArrayList<Viaje> viajes = new ArrayList<>();
+    private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+    private ArrayList<Ruta> rutas = new ArrayList<>();
+    private ArrayList<Mantenimiento> mantenimientos = new ArrayList<>();
 
     /**
      * Creates new form FormTransportes
