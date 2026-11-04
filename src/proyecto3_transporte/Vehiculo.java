@@ -22,6 +22,8 @@ public abstract class Vehiculo {
         this.recargo = recargo;
     }
     
+    public abstract boolean validarCapacidadMaxima(double cantidad);
+    
     public boolean esEstado(String estado){
         //valida que el estado sea el mismo
         return (this.estado.equalsIgnoreCase(estado));

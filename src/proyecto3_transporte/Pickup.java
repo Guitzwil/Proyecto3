@@ -33,5 +33,10 @@ public class Pickup extends Vehiculo{
     public void setCapacidadCargaKg(double capacidadCargaKg) {
         this.capacidadCargaKg = capacidadCargaKg;
     }
+
+    @Override
+    public boolean validarCapacidadMaxima(double cantidad) {
+        return (cantidad <= this.capacidadCargaKg);
+    }
     
 }

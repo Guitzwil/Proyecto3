@@ -23,4 +23,12 @@ public class Bus extends Vehiculo {
     public void setCantidadPasajeros(int cantidadPasajeros) {
         this.cantidadPasajeros = cantidadPasajeros;
     }   
+ 
+    @Override
+    public boolean validarCapacidadMaxima(double cantidad) {
+        //se castea a un entero
+        int pasajeros = (int) cantidad;
+        
+        return (pasajeros <= this.cantidadPasajeros);
+    }
 }

@@ -515,13 +515,11 @@ public class FormTransportes extends javax.swing.JFrame {
         cbVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         cbPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbPiloto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un Piloto--" }));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("Ruta");
 
         cbRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbRuta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione una Ruta" }));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setText("Fecha");
@@ -586,34 +584,34 @@ public class FormTransportes extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel19)
-                            .addComponent(cbTipoCarga, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel18)
-                            .addComponent(spnHora)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel16)
-                            .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15)
-                            .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13)
-                            .addComponent(cbVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(spnCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                            .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel19)
+                                .addComponent(cbTipoCarga, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel18)
+                                .addComponent(spnHora)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel16)
+                                .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel15)
+                                .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addComponent(spnCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                                .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrarViaje))
                         .addGap(86, 86, 86)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
                             .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnRegistrarViaje)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel13))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -624,44 +622,46 @@ public class FormTransportes extends javax.swing.JFrame {
                     .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel20))
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTipoCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel13)
+                                .addGap(15, 15, 15)
+                                .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dchFechaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spnHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbTipoCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
                                 .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegistrarViaje)
-                            .addComponent(jLabel21))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRegistrarViaje)))
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel21)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VIAJES", jPanel6);
@@ -728,10 +728,22 @@ public class FormTransportes extends javax.swing.JFrame {
                     atZone(ZoneId.systemDefault()).toLocalDate();
             LocalTime hora = ((Date) spnHora.getValue()).toInstant().
                     atZone(ZoneId.systemDefault()).toLocalTime();
+            double cantidad = (double) spnCantidad.getValue();
             
             //se valida que el tipo de carga sea valido
             if(cbTipoCarga.getSelectedIndex() <= 0){
                 JOptionPane.showMessageDialog(this, "Seleccione un tipo de carga valido");
+                return;
+            }
+            
+            //se valida que la cantidad no sea menor a 1 o mayor a la capacidad del vehiculo
+            if(cantidad < 1){
+                JOptionPane.showMessageDialog(this, "La cantidad no puede ser menor a cero");
+                return;
+            }
+            
+            if(!vehiculo.validarCapacidadMaxima(cantidad)){
+                JOptionPane.showMessageDialog(this, "Se a sobrepasado la capacidad del vehículo");
                 return;
             }
             
@@ -764,17 +776,45 @@ public class FormTransportes extends javax.swing.JFrame {
     private void cargarComboBoxesVehiculo(){
         cbVehiculo.removeAllItems();
         
-        //se crea un modelo y se añaden todos los elmentos de la lista
-        DefaultComboBoxModel<Vehiculo> modelCBvehiculo = new DefaultComboBoxModel<>();
-        for (Vehiculo vehiculo : vehiculos) {
-            //se valida que el vehículo no este dado de baja o en mantenimiento
-            if(vehiculo.esEstado("mantenimiento") || vehiculo.esEstado("inactivo"))
-                continue;
-            modelCBvehiculo.addElement(vehiculo);
+        //se valida mediante el combo box de cbTipoCarga que vehiculos mostrar
+        if(cbTipoCarga.getSelectedIndex() <= 0) return;
+        
+        if(cbTipoCarga.getSelectedItem().equals("Pasajeros")){
+            //se crea un modelo y se añaden todos los buses y mircrobuses
+            DefaultComboBoxModel<Vehiculo> modelPasajeros = new DefaultComboBoxModel<>();
+            for (Vehiculo vehiculo : vehiculos) {
+                //se valida que el vehículo no este dado de baja o en mantenimiento
+                if(vehiculo.esEstado("mantenimiento") || vehiculo.esEstado("inactivo"))
+                    continue;
+            
+                //se añaden solo buses o microbuses
+                if(vehiculo instanceof Pickup)
+                    continue;
+                
+                modelPasajeros.addElement(vehiculo);
+            }
+        
+            //se le pasa el modelo al cbVehiculo
+            cbVehiculo.setModel(modelPasajeros);           
+            return;
         }
         
-        //se le pasa el modelo al cbVehiculo
-        cbVehiculo.setModel(modelCBvehiculo);
+        if(cbTipoCarga.getSelectedItem().equals("Quintales")){
+            //se crea un modelo y se añaden todos los pickups
+            DefaultComboBoxModel<Vehiculo> modelQuintales = new DefaultComboBoxModel<>();
+            for (Vehiculo vehiculo : vehiculos) {
+                //se valida que el vehículo no este dado de baja o en mantenimiento
+                if(vehiculo.esEstado("mantenimiento") || vehiculo.esEstado("inactivo"))
+                    continue;
+                    
+                //se añaden solo los pickups
+                if(vehiculo instanceof Pickup)
+                    modelQuintales.addElement(vehiculo);
+            }
+        
+            //se le pasa el modelo al cbVehiculo
+            cbVehiculo.setModel(modelQuintales);                      
+        }
     }
     
     private void cargarComboBoxesPiloto(){
