@@ -5,6 +5,7 @@
 package proyecto3_transporte;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -498,7 +499,6 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel14.setText("Piloto");
 
         cbVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un Vehículo--" }));
 
         cbPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbPiloto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un Piloto--" }));
@@ -703,6 +703,31 @@ public class FormTransportes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarViajeActionPerformed
 
+    
+    //############################## REGIONES ##################################
+    
+    //#Region refrescar comboBoxes
+    private void cargarComboBoxes(){
+        
+    }
+    
+    private void cargarComboBoxesVehiculo(){
+        cbVehiculo.removeAllItems();
+        
+        //se crea un modelo y se añaden todos los elmentos de la lista
+        DefaultComboBoxModel<Vehiculo> modelCBvehiculo = new DefaultComboBoxModel<>();
+        for (Vehiculo vehiculo : vehiculos) {
+            modelCBvehiculo.addElement(vehiculo);
+        }
+        
+        //se le pasa el modelo al cbVehiculo
+        cbVehiculo.setModel(modelCBvehiculo);
+    }
+    //EndRegion
+    
+    //##########################################################################
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -735,7 +760,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbPiloto;
     private javax.swing.JComboBox<String> cbRuta;
     private javax.swing.JComboBox<String> cbTipoCarga;
-    private javax.swing.JComboBox<String> cbVehiculo;
+    private javax.swing.JComboBox<Vehiculo> cbVehiculo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
