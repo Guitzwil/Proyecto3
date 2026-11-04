@@ -58,7 +58,16 @@ public abstract class Vehiculo {
     }
 
     public void setKilometraje(double kilometraje) {
-        this.kilometraje = kilometraje;
+        //si el kilometraje es menor a uno entonces no se agrega
+        if(kilometraje < 1) return;
+        
+        this.kilometraje += kilometraje;
+        
+        //si despues de agregarle los kilometros se supera el umbras se cambia el estado
+        //a mantenimiento
+        if(this.kilometraje > umbralMantenimiento){
+            setEstado("mantenimiento");
+        }
     }
 
     public double getRecargo() {

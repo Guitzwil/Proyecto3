@@ -121,6 +121,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         lblTotalViajes = new javax.swing.JLabel();
         dchFechaViaje = new com.toedter.calendar.JDateChooser();
+        btnFinalizarViaje = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -583,6 +584,9 @@ public class FormTransportes extends javax.swing.JFrame {
 
         lblTotalViajes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        btnFinalizarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnFinalizarViaje.setText("Finalizar Viaje");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -590,6 +594,7 @@ public class FormTransportes extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -608,15 +613,16 @@ public class FormTransportes extends javax.swing.JFrame {
                             .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegistrarViaje))
                         .addGap(86, 86, 86)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnFinalizarViaje)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel20)
                             .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel13))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -664,9 +670,11 @@ public class FormTransportes extends javax.swing.JFrame {
                                 .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnRegistrarViaje)))
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel21)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(btnFinalizarViaje))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VIAJES", jPanel6);
@@ -766,6 +774,9 @@ public class FormTransportes extends javax.swing.JFrame {
             //se calcula el costo del viaje y se muestra
             double costo = viajes.get(viajes.size() - 1).calcularTotal();
             lblCobroCalculado.setText(convertirDosDecimales.format(costo));
+            
+            //se suman los kilometros de la ruta al vehículo
+            vehiculo.setKilometraje(ruta.getKilometros());
             
             //se refresca la tabla y se limpian los campos
             
@@ -912,6 +923,7 @@ public class FormTransportes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup FiltrarReportePor;
     private javax.swing.JButton btnFiltrarReporte;
+    private javax.swing.JButton btnFinalizarViaje;
     private javax.swing.JButton btnRegistrarViaje;
     private javax.swing.JComboBox<Piloto> cbPiloto;
     private javax.swing.JComboBox<Ruta> cbRuta;
