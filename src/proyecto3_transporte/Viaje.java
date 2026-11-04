@@ -37,6 +37,18 @@ public abstract class Viaje implements Facturable{
         return (this.estadoViaje.equalsIgnoreCase(estado));
     }
     
+    public boolean esFecha(LocalDate fecha){
+        return this.fecha.equals(fecha);
+    }
+    
+    public boolean esVehiculo(Vehiculo vehiculo){
+        return (this.vehiculo.equals(vehiculo));
+    }
+    
+    public boolean esPiloto(Piloto piloto){
+        return (this.piloto.equals(piloto));
+    }
+    
     public void setEstadoViaje(String estado){        
         //se valida que el estado solo sea finalizado
         if(!estado.equalsIgnoreCase("finalizado")) return;

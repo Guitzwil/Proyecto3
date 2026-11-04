@@ -586,6 +586,7 @@ public class FormTransportes extends javax.swing.JFrame {
 
         btnFinalizarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnFinalizarViaje.setText("Finalizar Viaje");
+        btnFinalizarViaje.addActionListener(this::btnFinalizarViajeActionPerformed);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -794,6 +795,34 @@ public class FormTransportes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbTipoCargaItemStateChanged
 
+    private void btnFinalizarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarViajeActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            int filaSeleccionada = tblViajes.getSelectedRow();
+            //se valida que la fila seleccionada sea valida
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un viaje de la tabla");
+                return;
+            }
+            
+            //se extra el objeto
+            Viaje viaje = viajes.get(filaSeleccionada);
+            
+            //se cambia el estado del viaje
+            viaje.setEstadoViaje("finalizado");
+            
+            //se valida si el vehículo despues del viaje requiere mantenimiento
+            if(!viaje.getVehiculo().esEstado("mantenimiento")) return;
+            
+            //se le avisa al usuario que el vehículo requiere mantenimiento
+            JOptionPane.showMessageDialog(this, "El vehículo con placa " + viaje.getVehiculo().getPlaca() 
+                    + " requiere mantenimiento");
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnFinalizarViajeActionPerformed
+
     
     //############################## REGIONES ##################################
     
@@ -889,6 +918,36 @@ public class FormTransportes extends javax.swing.JFrame {
         dchFechaViaje.setDate(null);
         spnHora.setValue("00:00");
         spnCantidad.setValue(1);
+    }
+    //EndRegion
+    
+    //#Region control de choques
+    private boolean elVehiculoEstaDisponible(Vehiculo v, LocalDate fecha){
+        //se filtran los viajes de la fecha pasada como parametro y los viajes en ruta
+        //de ese vehículo
+        ArrayList<Viaje> viajesDelVehículo = new ArrayList<>();
+        for (Viaje viaje : viajes) {
+            if(viaje.esVehiculo(v) && viaje.esFecha(fecha) && viaje.esEstadoViaje("ruta")){
+                viajesDelVehículo.add(viaje);
+            }
+        }
+        
+        //si hay un elmento en la lista el vehívulo esta ocupado
+        if(viajesDelVehículo.size() != 0)
+            return false;
+        
+        return true;
+    }
+    
+    private boolean elPilotoEstaDisponible(Piloto p, LocalDate fecha){
+        //se filtran los viajes de la fecha pasada como parametro y los viajes en ruta
+        //del piloto        
+        ArrayList<Viaje> viajesDelPiloto = new ArrayList<>();
+        for (Viaje viaje : viajes) {
+            if(viaje.esPiloto(p) && viaje.esFecha(fecha) && viaje.esEstadoViaje("ruta")){
+                viajesDelPiloto.add(viaje);
+            }
+        }
     }
     //EndRegion
     
