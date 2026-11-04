@@ -4,8 +4,13 @@
  */
 package proyecto3_transporte;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -713,6 +718,37 @@ public class FormTransportes extends javax.swing.JFrame {
 
     private void btnRegistrarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarViajeActionPerformed
         // TODO add your handling code here:
+        
+        try {
+            //se extraen los datos de los campos
+            Vehiculo vehiculo = (Vehiculo) cbVehiculo.getSelectedItem();
+            Piloto piloto = (Piloto) cbPiloto.getSelectedItem();
+            Ruta ruta = (Ruta) cbRuta.getSelectedItem();
+            LocalDate fecha = dchFechaViaje.getDate().toInstant().
+                    atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalTime hora = ((Date) spnHora.getValue()).toInstant().
+                    atZone(ZoneId.systemDefault()).toLocalTime();
+            
+            //se valida que el tipo de carga sea valido
+            if(cbTipoCarga.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de carga valido");
+                return;
+            }
+            
+            //se crea un viaje dependiendo del tipo de carga
+            if(cbTipoCarga.getSelectedItem().equals("Pasajeros")){
+                int pasajeros = (int) spnCantidad.getValue();
+                viajes.add(new viajePorPasajero(pasajeros, vehiculo, ruta, piloto, fecha, hora));
+            }
+            else{
+                double quintales = (double) spnCantidad.getValue();
+                viajes.add(new ViajeCarga(quintales, vehiculo, ruta, piloto, fecha, hora));
+            }
+                
+            
+            
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnRegistrarViajeActionPerformed
 
     

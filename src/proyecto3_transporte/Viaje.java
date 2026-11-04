@@ -22,17 +22,28 @@ public abstract class Viaje implements Facturable{
     
     //constructor
 
-    public Viaje(Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
+    public Viaje(Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, LocalTime hora) {
         this.vehiculo = vehiculo;
         this.ruta = ruta;
         this.piloto = piloto;
         this.fecha = fecha;
-        this.estadoViaje = estadoViaje;
+        this.estadoViaje = "ruta";
         this.hora = hora;
     }
     
     //metodos
 
+    public boolean esEstadoViaje(String estado){
+        return (this.estadoViaje.equalsIgnoreCase(estado));
+    }
+    
+    public void setEstadoViaje(String estado){        
+        //se valida que el estado solo sea finalizado
+        if(!estado.equalsIgnoreCase("finalizado")) return;
+        
+        this.estadoViaje = estado;
+    }
+    
     public Vehiculo getVehiculo() {
         return vehiculo;
     }

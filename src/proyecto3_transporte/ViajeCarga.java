@@ -17,8 +17,8 @@ public class ViajeCarga extends Viaje{
     
     //constructor
 
-    public ViajeCarga(double quintales, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, String estadoViaje, LocalTime hora) {
-        super(vehiculo, ruta, piloto, fecha, estadoViaje, hora);
+    public ViajeCarga(double quintales, Vehiculo vehiculo, Ruta ruta, Piloto piloto, LocalDate fecha, LocalTime hora) {
+        super(vehiculo, ruta, piloto, fecha, hora);
         this.quintales = quintales;
     }
     
