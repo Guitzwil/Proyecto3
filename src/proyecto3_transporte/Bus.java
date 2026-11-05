@@ -31,4 +31,9 @@ public class Bus extends Vehiculo {
         
         return (pasajeros <= this.cantidadPasajeros);
     }
+
+    @Override
+    public String tipoVehiculo() {
+        return ("Bus");
+    }
 }

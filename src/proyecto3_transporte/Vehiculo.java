@@ -23,6 +23,7 @@ public abstract class Vehiculo {
     }
     
     public abstract boolean validarCapacidadMaxima(double cantidad);
+    public abstract String tipoVehiculo();
     
     public boolean esEstado(String estado){
         //valida que el estado sea el mismo

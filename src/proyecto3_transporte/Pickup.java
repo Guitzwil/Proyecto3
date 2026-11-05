@@ -38,5 +38,10 @@ public class Pickup extends Vehiculo{
     public boolean validarCapacidadMaxima(double cantidad) {
         return (cantidad <= this.capacidadCargaKg);
     }
+
+    @Override
+    public String tipoVehiculo() {
+        return ("Pickup");
+    }
     
 }

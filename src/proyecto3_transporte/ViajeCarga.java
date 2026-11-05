@@ -13,7 +13,7 @@ import java.time.LocalTime;
  */
 public class ViajeCarga extends Viaje{
     //atributos 
-    double quintales;
+    private double quintales;
     
     //constructor
 

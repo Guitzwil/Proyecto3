@@ -31,5 +31,10 @@ public class Microbus extends Vehiculo {
         
         return (pasajeros <= this.cantidadPasajeros);
     }
+
+    @Override
+    public String tipoVehiculo() {
+        return ("Microbus");
+    }
     
 }
