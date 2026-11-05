@@ -27,6 +27,10 @@ public class Piloto extends Persona{
         return (this.numeroLicencia.equalsIgnoreCase(numeroLicencia));
     }
     
+    public boolean esTipoLicencia(String tipo){
+        return (this.tipoLicencia.equalsIgnoreCase(tipo));
+    }
+    
     public String getNumeroLicencia() {
         return numeroLicencia;
     }
@@ -46,4 +50,9 @@ public class Piloto extends Persona{
         
         this.estado = estado;
     }
+
+    public void setTipoLicencia(String tipoLicencia) {
+        this.tipoLicencia = tipoLicencia;
+    }
+    
 }

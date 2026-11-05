@@ -91,6 +91,8 @@ public class FormTransportes extends javax.swing.JFrame {
         btnDarBajaPiloto = new javax.swing.JButton();
         btnHabilitar = new javax.swing.JButton();
         btnRegistrarPiloto = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        cbFiltrarPorPilotos = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -356,7 +358,7 @@ public class FormTransportes extends javax.swing.JFrame {
 
         jLabel11.setText("Tipo de Licencia:");
 
-        cbTipoLicencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de licencia--" }));
+        cbTipoLicencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de licencia--", "A", "B", "C", "D" }));
 
         tblTablaPilotos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -383,6 +385,7 @@ public class FormTransportes extends javax.swing.JFrame {
 
         btnBuscarPilotos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnBuscarPilotos.setText("Buscar");
+        btnBuscarPilotos.addActionListener(this::btnBuscarPilotosActionPerformed);
 
         btnModificarPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnModificarPiloto.setText("Modificar");
@@ -400,6 +403,10 @@ public class FormTransportes extends javax.swing.JFrame {
         btnRegistrarPiloto.setText("Registrar");
         btnRegistrarPiloto.addActionListener(this::btnRegistrarPilotoActionPerformed);
 
+        jLabel12.setText("Filtrar Por:");
+
+        cbFiltrarPorPilotos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione una opción para filtrar--", "Nombre", "DPI", "Tipo de Licencia" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -411,26 +418,27 @@ public class FormTransportes extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNombre)
-                        .addComponent(txtDpi)
-                        .addComponent(txtTelefono)
-                        .addComponent(cbTipoLicencia, 0, 360, Short.MAX_VALUE)
-                        .addComponent(txtNumeroLicencia))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnHabilitar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegistrarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnBuscarPilotos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(btnModificarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(btnDarBajaPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(btnHabilitar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnRegistrarPiloto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(btnBuscarPilotos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnModificarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnDarBajaPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(cbFiltrarPorPilotos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtDpi, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cbTipoLicencia, javax.swing.GroupLayout.Alignment.LEADING, 0, 360, Short.MAX_VALUE)
+                        .addComponent(txtNumeroLicencia, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -461,15 +469,19 @@ public class FormTransportes extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbTipoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbFiltrarPorPilotos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscarPilotos)
                             .addComponent(btnModificarPiloto)
                             .addComponent(btnDarBajaPiloto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnHabilitar)
-                            .addComponent(btnRegistrarPiloto))))
+                            .addComponent(btnRegistrarPiloto)
+                            .addComponent(btnHabilitar))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -1317,66 +1329,94 @@ public class FormTransportes extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             //se valida que se selecione una fila valida
-            int filaSeleccionada = tblVehiculos.getSelectedRow();
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
             if(filaSeleccionada < 0){
                 JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
                 return;
             }
             
-            //se extrae el vehículo
-            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
             
             //se extraen los datos nuevos
-            double recargo = Double.parseDouble(txtRecargo.getText());
+            String nombre = txtNombre.getText();
+            String telefono = txtTelefono.getText();
             
-            if(vehiculo.tipoVehiculo().equals("Pickup")){
-                //se valida el campo
-                String traccion = txtTraccion.getText();
-                
-                if(traccion.trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Llene el campo vacío");
-                    return;
-                }
-                
-                double quintales = Double.parseDouble(txtCapacidad.getText());
-                
-                //se actualiza el objeto
-                Pickup p = (Pickup)vehiculo;
-                
-                p.setTipoDeTraccion(traccion);
-                p.setCapacidadCargaKg(quintales);
-                p.setRecargo(recargo);
+            //se valida que el tipo de licencía seleccionado sea valido
+            if(cbTipoLicencia.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                return;
             }
-            else{
-                int capacidadPasajeros = Integer.parseInt(txtCapacidad.getText());
-                
-                //se valida el tipo de bus
-                if(vehiculo.tipoVehiculo().equals("Bus")){
-                    Bus b = (Bus)vehiculo;
-                    
-                    b.setCantidadPasajeros(capacidadPasajeros);
-                    b.setRecargo(recargo);
-                }else{
-                    Microbus mb = (Microbus)vehiculo;
-                    
-                    mb.setCantidadPasajeros(capacidadPasajeros);
-                    mb.setRecargo(recargo);
-                }
-            }
+            
+            String tipoLicencia = (String) cbTipoLicencia.getSelectedItem();
+            
+            //se actualian las credenciales del piloto
+            piloto.setNombre(nombre);
+            piloto.setTelefono(telefono);
+            piloto.setTipoLicencia(tipoLicencia);
             
             //se refrescan los comboBoxes
             cargarComboBoxes();
             //se actualiza el archivo
             
             //se refresca la vista
-            refrescarTablaVehiculos(vehiculos);
+            refrescarTablaPilotos(pilotos);
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del vehículo: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del piloto: " + e.getMessage());
         } 
     }//GEN-LAST:event_btnModificarPilotoActionPerformed
 
-    
+    private void btnBuscarPilotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPilotosActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que la opción de filtrar sea valida
+            if(cbFiltrarPorPilotos.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una opción valida");
+                return;
+            }
+            
+            ArrayList<Piloto> filtro = new ArrayList<>();
+            
+            //se filtra la lista dependiendo del tipo de filtro 
+            if(cbFiltrarPorPilotos.getSelectedItem().equals("Tipo de Licencia")){
+                //se valida que el tipo sea valido
+                if(cbTipoLicencia.getSelectedIndex() <= 0){
+                    JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                    return;
+                }
+                
+                filtro = filtrarPorTipoLicencia((String) cbTipoLicencia.getSelectedItem());
+            }
+            else if (cbFiltrarPorPilotos.getSelectedItem().equals("Nombre")){
+                //se valida que el nombre no este vacío
+                String nombre  = txtNombre.getText();
+                if(nombre.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo de nombre");
+                    return;
+                }
+                
+                filtro = filtrarPorNombrePiloto(nombre);
+            }
+            else{
+                //se valida que el dpi no este vacío
+                String dpi  = txtDpi.getText();
+                if(dpi.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo de DPI");
+                    return;
+                }
+                
+                filtro = filtrarPorDpiPiloto(dpi);                
+            }
+            
+            //se refresca la vista
+            refrescarTablaPilotos(filtro);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscarPilotosActionPerformed
+
     //############################## REGIONES ##################################
     
     //#Region refrescar comboBoxes
@@ -1637,7 +1677,40 @@ public class FormTransportes extends javax.swing.JFrame {
         
         return v;
     }
-    //EndRegion
+    private ArrayList<Piloto> filtrarPorTipoLicencia(String tipo){
+        ArrayList<Piloto> p = new ArrayList<>();
+        //se recorre la lista y se añaden los que coincidan con el tipo
+        for (Piloto piloto : pilotos) {
+            if(!piloto.esTipoLicencia(tipo)) continue;
+            p.add(piloto);
+        }
+        return p;
+    }
+    private ArrayList<Piloto> filtrarPorNombrePiloto(String nombre){
+        ArrayList<Piloto> p = new ArrayList<>();
+        //se recorre la lista y se devuelve el piloto que coincida
+        for (Piloto piloto : pilotos) {
+            if(piloto.esNombre(nombre)){
+                p.add(piloto);
+                break;
+            }
+        }
+        
+        return p;
+    }
+    private ArrayList<Piloto> filtrarPorDpiPiloto(String dpi){
+        ArrayList<Piloto> p = new ArrayList<>();
+        //se recorre la lista y se devuelve el piloto que coincida
+        for (Piloto piloto : pilotos) {
+            if(piloto.esDpi(dpi)){
+                p.add(piloto);
+                break;
+            }
+        }
+        
+        return p;        
+    }
+     //EndRegion
     
     //##########################################################################
     
@@ -1682,6 +1755,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarPiloto;
     private javax.swing.JButton btnRegistrarVehiculo;
     private javax.swing.JButton btnRegistrarViaje;
+    private javax.swing.JComboBox<String> cbFiltrarPorPilotos;
     private javax.swing.JComboBox<String> cbFiltrarVehiculo;
     private javax.swing.JComboBox<Piloto> cbPiloto;
     private javax.swing.JComboBox<Ruta> cbRuta;
@@ -1695,6 +1769,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

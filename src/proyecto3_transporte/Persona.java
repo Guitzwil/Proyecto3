@@ -26,6 +26,10 @@ public abstract class Persona {
         return (this.dpi.equalsIgnoreCase(dpi));
     }
     
+    public boolean esNombre(String nombre){
+        return (this.nombre.equalsIgnoreCase(nombre));
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -37,5 +41,14 @@ public abstract class Persona {
     public String getTelefono() {
         return telefono;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
     
 }
