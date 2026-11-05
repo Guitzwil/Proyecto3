@@ -71,25 +71,7 @@ public class FormTransportes extends javax.swing.JFrame {
         btnModificarPiloto = new javax.swing.JButton();
         btnDarBajaPiloto = new javax.swing.JButton();
         btnActualizarListaPilotos = new javax.swing.JButton();
-        pnlRutas = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        pnlDatosRuta = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        txtOrigen = new javax.swing.JTextField();
-        txtDestino = new javax.swing.JTextField();
-        txtDistancia = new javax.swing.JTextField();
-        txtTarifaBase = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel34 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        spRutas = new javax.swing.JScrollPane();
-        tblRutas = new javax.swing.JTable();
-        btnModificarRuta = new javax.swing.JButton();
-        btnDarBajaRuta = new javax.swing.JButton();
-        btnActualizarRuta = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -161,7 +143,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1161, Short.MAX_VALUE)
+            .addGap(0, 1155, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +224,7 @@ public class FormTransportes extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(61, Short.MAX_VALUE))
+                        .addContainerGap(55, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -379,7 +361,7 @@ public class FormTransportes extends javax.swing.JFrame {
                                             .addComponent(jLabel28)
                                             .addComponent(jLabel26))
                                         .addGap(141, 141, 141)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                 .addComponent(jLabel12))
                             .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4))
@@ -437,164 +419,20 @@ public class FormTransportes extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("PILOTOS ", jPanel4);
 
-        pnlRutas.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("ADMINISTRACIÓN DE RUTAS");
-
-        pnlDatosRuta.setBackground(new java.awt.Color(0, 102, 51));
-        pnlDatosRuta.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("Origen");
-
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText("Destino");
-
-        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("Distancia");
-
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Tarifa Base");
-
-        txtDestino.addActionListener(this::txtDestinoActionPerformed);
-
-        javax.swing.GroupLayout pnlDatosRutaLayout = new javax.swing.GroupLayout(pnlDatosRuta);
-        pnlDatosRuta.setLayout(pnlDatosRutaLayout);
-        pnlDatosRutaLayout.setHorizontalGroup(
-            pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosRutaLayout.createSequentialGroup()
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel32)))
-                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosRutaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(txtDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel33)
-                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDestino)
-                            .addComponent(txtTarifaBase, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))))
-                .addGap(112, 112, 112))
-        );
-        pnlDatosRutaLayout.setVerticalGroup(
-            pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDatosRutaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTarifaBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel34.setText("Rutas registradas");
-
-        tblRutas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        spRutas.setViewportView(tblRutas);
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spRutas, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
+            .addGap(0, 1155, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(spRutas, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
-        btnModificarRuta.setText("Modificar");
-
-        btnDarBajaRuta.setText("Dar de baja");
-
-        btnActualizarRuta.setText("Actualizar");
-
-        javax.swing.GroupLayout pnlRutasLayout = new javax.swing.GroupLayout(pnlRutas);
-        pnlRutas.setLayout(pnlRutasLayout);
-        pnlRutasLayout.setHorizontalGroup(
-            pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRutasLayout.createSequentialGroup()
-                .addGroup(pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlRutasLayout.createSequentialGroup()
-                        .addGroup(pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRutasLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel7))
-                            .addGroup(pnlRutasLayout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(pnlDatosRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlRutasLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel34))
-                            .addGroup(pnlRutasLayout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addGroup(pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlRutasLayout.createSequentialGroup()
-                                        .addComponent(btnModificarRuta)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnDarBajaRuta)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnActualizarRuta))
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 100, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        pnlRutasLayout.setVerticalGroup(
-            pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRutasLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlDatosRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnlRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarRuta)
-                    .addComponent(btnDarBajaRuta)
-                    .addComponent(btnActualizarRuta))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("RUTAS", pnlRutas);
+        jTabbedPane1.addTab("RUTAS", jPanel5);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -602,7 +440,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1161, Short.MAX_VALUE)
+            .addGap(0, 1155, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,7 +537,7 @@ public class FormTransportes extends javax.swing.JFrame {
                                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jDateChooser3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTextTipoFilro, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -744,7 +582,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1161, Short.MAX_VALUE)
+            .addGap(0, 1155, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -864,7 +702,7 @@ public class FormTransportes extends javax.swing.JFrame {
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -970,10 +808,6 @@ public class FormTransportes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarViajeActionPerformed
 
-    private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1003,16 +837,13 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.ButtonGroup FiltrarReportePor;
     private javax.swing.JButton btnActualizarListaPilotos;
     private javax.swing.JButton btnActualizarListado;
-    private javax.swing.JButton btnActualizarRuta;
     private javax.swing.JButton btnBuscarPiloto;
     private javax.swing.JButton btnBuscarPlacasVehiculo;
     private javax.swing.JButton btnDarBaja;
     private javax.swing.JButton btnDarBajaPiloto;
-    private javax.swing.JButton btnDarBajaRuta;
     private javax.swing.JButton btnFiltrarReporte;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnModificarPiloto;
-    private javax.swing.JButton btnModificarRuta;
     private javax.swing.JButton btnRegistrarViaje;
     private javax.swing.JButton btnVerDetalles;
     private javax.swing.JComboBox<String> cbPiloto;
@@ -1047,15 +878,9 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -1077,7 +902,6 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
@@ -1088,21 +912,13 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JLabel lblTextTipoFilro;
     private javax.swing.JLabel lblTotalReporte;
     private javax.swing.JLabel lblTotalViajes;
-    private javax.swing.JPanel pnlDatosRuta;
-    private javax.swing.JPanel pnlRutas;
     private javax.swing.JScrollPane spPilotos;
-    private javax.swing.JScrollPane spRutas;
     private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnHora;
     private javax.swing.JTable tblPilotos;
     private javax.swing.JTable tblReporteIngresos;
-    private javax.swing.JTable tblRutas;
     private javax.swing.JTable tblViajes;
     private javax.swing.JTextField txtBuscarPiloto;
     private javax.swing.JTextField txtBuscarPlacasVehiculo;
-    private javax.swing.JTextField txtDestino;
-    private javax.swing.JTextField txtDistancia;
-    private javax.swing.JTextField txtOrigen;
-    private javax.swing.JTextField txtTarifaBase;
     // End of variables declaration//GEN-END:variables
 }
