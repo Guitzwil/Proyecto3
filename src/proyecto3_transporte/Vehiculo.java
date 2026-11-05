@@ -92,6 +92,10 @@ public abstract class Vehiculo implements Serializable{
         this.recargo = recargo;
     }
     
+    public void resetearKilometraje(){
+        kilometraje = 0;
+    }
+    
     @Override
     public String toString() {
         return placa + " - " + kilometraje;

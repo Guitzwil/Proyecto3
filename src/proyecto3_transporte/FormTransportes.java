@@ -71,7 +71,29 @@ public class FormTransportes extends javax.swing.JFrame {
         FiltrarReportePor = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cbVehiculo = new javax.swing.JComboBox<>();
+        cbPiloto = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        cbRuta = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        spnHora = new javax.swing.JSpinner();
+        jLabel18 = new javax.swing.JLabel();
+        cbTipoCarga = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        btnRegistrarViaje = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        lblCobroCalculado = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblViajes = new javax.swing.JTable();
+        jLabel21 = new javax.swing.JLabel();
+        lblTotalViajes = new javax.swing.JLabel();
+        dchFechaViaje = new com.toedter.calendar.JDateChooser();
+        btnFinalizarViaje = new javax.swing.JButton();
+        txtCantidad = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cbTipoVehiculo = new javax.swing.JComboBox<>();
@@ -178,30 +200,6 @@ public class FormTransportes extends javax.swing.JFrame {
         lblTotalReporte = new javax.swing.JLabel();
         dchDesdeFecha = new com.toedter.calendar.JDateChooser();
         dchHastaFecha = new com.toedter.calendar.JDateChooser();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        cbVehiculo = new javax.swing.JComboBox<>();
-        cbPiloto = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        cbRuta = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        spnHora = new javax.swing.JSpinner();
-        jLabel18 = new javax.swing.JLabel();
-        cbTipoCarga = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        btnRegistrarViaje = new javax.swing.JButton();
-        jLabel20 = new javax.swing.JLabel();
-        lblCobroCalculado = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblViajes = new javax.swing.JTable();
-        jLabel21 = new javax.swing.JLabel();
-        lblTotalViajes = new javax.swing.JLabel();
-        dchFechaViaje = new com.toedter.calendar.JDateChooser();
-        btnFinalizarViaje = new javax.swing.JButton();
-        txtCantidad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -227,20 +225,176 @@ public class FormTransportes extends javax.swing.JFrame {
         jTabbedPane1.setFocusable(false);
         jTabbedPane1.setInheritsPopupMenu(true);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1159, Short.MAX_VALUE)
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel13.setText("Vehiculo");
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setText("Piloto");
+
+        cbVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        cbPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setText("Ruta");
+
+        cbRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setText("Fecha");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setText("Hora");
+
+        spnHora.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        spnHora.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.HOUR));
+        spnHora.setEditor(new javax.swing.JSpinner.DateEditor(spnHora, "HH:mm"));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setText("Tipo de carga");
+
+        cbTipoCarga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbTipoCarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione tipo de carga--", "Pasajeros", "Quintales" }));
+        cbTipoCarga.addItemListener(this::cbTipoCargaItemStateChanged);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel19.setText("Cantidad");
+
+        btnRegistrarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrarViaje.setText("Registrar Viaje");
+        btnRegistrarViaje.addActionListener(this::btnRegistrarViajeActionPerformed);
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setText("Cobro calculado");
+
+        lblCobroCalculado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        tblViajes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "Hora", "Ruta", "Vehículo", "Piloto", "Cantidad", "Cobro", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblViajes);
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel21.setText("Total de viajes:   Q");
+
+        lblTotalViajes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        btnFinalizarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnFinalizarViaje.setText("Finalizar Viaje");
+        btnFinalizarViaje.addActionListener(this::btnFinalizarViajeActionPerformed);
+
+        txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel19)
+                            .addComponent(cbTipoCarga, 0, 239, Short.MAX_VALUE)
+                            .addComponent(jLabel18)
+                            .addComponent(spnHora)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16)
+                            .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15)
+                            .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14)
+                            .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbVehiculo, 0, 239, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarViaje)
+                            .addComponent(txtCantidad))
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnFinalizarViaje)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel20)
+                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTipoCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel21)
+                                    .addComponent(btnFinalizarViaje)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel13)
+                                .addGap(15, 15, 15)
+                                .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dchFechaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spnHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(btnRegistrarViaje)))
+                        .addContainerGap(85, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79))))
         );
 
-        jTabbedPane1.addTab("INICIO", jPanel2);
+        jTabbedPane1.addTab("VIAJES", jPanel6);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1119,220 +1273,37 @@ public class FormTransportes extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(lblTextTipoFilro))
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dchDesdeFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dchHastaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnFiltrarReporte))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTotalReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
+                    .addComponent(lblTotalReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(lblTextTipoFilro))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dchDesdeFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dchHastaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(btnFiltrarReporte))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel27)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("FACTURACIÓN", jPanel8);
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1159, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("REGISTRO", jPanel9);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel13.setText("Vehiculo");
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setText("Piloto");
-
-        cbVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        cbPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setText("Ruta");
-
-        cbRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setText("Fecha");
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setText("Hora");
-
-        spnHora.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        spnHora.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.HOUR));
-        spnHora.setEditor(new javax.swing.JSpinner.DateEditor(spnHora, "HH:mm"));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setText("Tipo de carga");
-
-        cbTipoCarga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbTipoCarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione tipo de carga--", "Pasajeros", "Quintales" }));
-        cbTipoCarga.addItemListener(this::cbTipoCargaItemStateChanged);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setText("Cantidad");
-
-        btnRegistrarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnRegistrarViaje.setText("Registrar Viaje");
-        btnRegistrarViaje.addActionListener(this::btnRegistrarViajeActionPerformed);
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setText("Cobro calculado");
-
-        lblCobroCalculado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        tblViajes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Fecha", "Hora", "Ruta", "Vehículo", "Piloto", "Cantidad", "Cobro", "Estado"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblViajes);
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setText("Total de viajes:   Q");
-
-        lblTotalViajes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        btnFinalizarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnFinalizarViaje.setText("Finalizar Viaje");
-        btnFinalizarViaje.addActionListener(this::btnFinalizarViajeActionPerformed);
-
-        txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel19)
-                            .addComponent(cbTipoCarga, 0, 239, Short.MAX_VALUE)
-                            .addComponent(jLabel18)
-                            .addComponent(spnHora)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel16)
-                            .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15)
-                            .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14)
-                            .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbVehiculo, 0, 239, Short.MAX_VALUE)
-                            .addComponent(btnRegistrarViaje)
-                            .addComponent(txtCantidad))
-                        .addGap(86, 86, 86)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(btnFinalizarViaje)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel21)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel20)
-                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbTipoCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel21)
-                                    .addComponent(btnFinalizarViaje)))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel13)
-                                .addGap(15, 15, 15)
-                                .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dchFechaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(btnRegistrarViaje)))
-                        .addContainerGap(85, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
-        );
-
-        jTabbedPane1.addTab("VIAJES", jPanel6);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1384,48 +1355,84 @@ public class FormTransportes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFinalizarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarViajeActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            int filaSeleccionada = tblViajes.getSelectedRow();
+            //se valida que la fila seleccionada sea valida
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un viaje de la tabla");
+                return;
+            }
+
+            //se extra el objeto
+            Viaje viaje = viajes.get(filaSeleccionada);
+
+            //se cambia el estado del viaje
+            viaje.setEstadoViaje("finalizado");
+
+            //se actuzaliza el archivo y comboBoxes
+            gestorArchivos.guardarViajes(viajes);
+            cargarComboBoxes();
+
+            //se refresca la vista
+            refrescarTablaViajes();
+
+            //se valida si el vehículo despues del viaje requiere mantenimiento
+            if(!viaje.getVehiculo().esEstado("mantenimiento")) return;
+
+            //se le avisa al usuario que el vehículo requiere mantenimiento
+            JOptionPane.showMessageDialog(this, "El vehículo con placa " + viaje.getVehiculo().getPlaca()
+                + " requiere mantenimiento");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado del viaje");
+        }
+    }//GEN-LAST:event_btnFinalizarViajeActionPerformed
+
     private void btnRegistrarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarViajeActionPerformed
-        
+
         try {
             //se extraen los datos de los campos
             Vehiculo vehiculo = (Vehiculo) cbVehiculo.getSelectedItem();
             Piloto piloto = (Piloto) cbPiloto.getSelectedItem();
             Ruta ruta = (Ruta) cbRuta.getSelectedItem();
             LocalDate fecha = dchFechaViaje.getDate().toInstant().
-                    atZone(ZoneId.systemDefault()).toLocalDate();
+            atZone(ZoneId.systemDefault()).toLocalDate();
             LocalTime hora = ((Date) spnHora.getValue()).toInstant().
-                    atZone(ZoneId.systemDefault()).toLocalTime();
+            atZone(ZoneId.systemDefault()).toLocalTime();
             double cantidad = Double.parseDouble(txtCantidad.getText());
-            
+
             //se valida que el tipo de carga sea valido
             if(cbTipoCarga.getSelectedIndex() <= 0){
                 JOptionPane.showMessageDialog(this, "Seleccione un tipo de carga valido");
                 return;
             }
-            
+
             //se valida que el vehiulo y el piloto esten disponibles
             if(!elVehiculoEstaDisponible(vehiculo, fecha)){
                 JOptionPane.showMessageDialog(this, "El vehículo no esta disponible por el momento");
                 return;
             }
-            
+
             //se valida que el piloto este disponible
             if(!elPilotoEstaDisponible(piloto, fecha)){
                 JOptionPane.showMessageDialog(this, "El piloto no esta disponible por el momento");
                 return;
             }
-            
+
             //se valida que la cantidad no sea menor a 1 o mayor a la capacidad del vehiculo
             if(cantidad < 1){
                 JOptionPane.showMessageDialog(this, "La cantidad no puede ser menor a cero");
                 return;
             }
-            
+
             if(!vehiculo.validarCapacidadMaxima(cantidad)){
                 JOptionPane.showMessageDialog(this, "Se a sobrepasado la capacidad del vehículo");
                 return;
             }
-            
+
             //se crea un viaje dependiendo del tipo de carga
             if(cbTipoCarga.getSelectedItem().equals("Pasajeros")){
                 int pasajeros = (int) cantidad;
@@ -1435,659 +1442,45 @@ public class FormTransportes extends javax.swing.JFrame {
                 double quintales = cantidad;
                 viajes.add(new ViajeCarga(quintales, vehiculo, ruta, piloto, fecha, hora));
             }
-                 
-            
+
             //se calcula el costo del viaje y se muestra
             double costo = viajes.get(viajes.size() - 1).calcularTotal();
             lblCobroCalculado.setText(convertirDosDecimales.format(costo));
-            
+
             //se suman los kilometros de la ruta al vehículo
             vehiculo.setKilometraje(ruta.getKilometros());
-            
+
             //se actualiza el archivo y comboBoxes
             gestorArchivos.guardarVehiculos(vehiculos);
             gestorArchivos.guardarViajes(viajes);
             cargarComboBoxes();
-            
+
             //se refresca la tabla y se limpian los campos
             refrescarTablaViajes();
             limpiarViajes();
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
         }
     }//GEN-LAST:event_btnRegistrarViajeActionPerformed
 
     private void cbTipoCargaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbTipoCargaItemStateChanged
-        //solo cuando cambia el elemento se actualiza los comboBoxe de vehiculo 
+        //solo cuando cambia el elemento se actualiza los comboBoxe de vehiculo
         if(evt.getStateChange() == java.awt.event.ItemEvent.SELECTED){
             cargarComboBoxesTipoVehiculo();
         }
     }//GEN-LAST:event_cbTipoCargaItemStateChanged
 
-    private void btnFinalizarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarViajeActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            int filaSeleccionada = tblViajes.getSelectedRow();
-            //se valida que la fila seleccionada sea valida
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione un viaje de la tabla");
-                return;
-            }
-            
-            //se extra el objeto
-            Viaje viaje = viajes.get(filaSeleccionada);
-            
-            //se cambia el estado del viaje
-            viaje.setEstadoViaje("finalizado");
-            
-            //se actuzaliza el archivo y comboBoxes
-            gestorArchivos.guardarViajes(viajes);
-            cargarComboBoxes();
-            
-            //se refresca la vista
-            refrescarTablaViajes();
-            
-            //se valida si el vehículo despues del viaje requiere mantenimiento
-            if(!viaje.getVehiculo().esEstado("mantenimiento")) return;
-            
-            //se le avisa al usuario que el vehículo requiere mantenimiento
-            JOptionPane.showMessageDialog(this, "El vehículo con placa " + viaje.getVehiculo().getPlaca() 
-                    + " requiere mantenimiento");
-            
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado del viaje");
-        }
-    }//GEN-LAST:event_btnFinalizarViajeActionPerformed
-
-    private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se extraen los datos de los campos
-            String placa = txtPlaca.getText();
-            double recargo = Double.parseDouble(txtRecargo.getText());
-            
-            //se valida que el tipo de vehículo seleccionado sea valido
-            if(cbTipoVehiculo.getSelectedIndex() <= 0){
-                JOptionPane.showMessageDialog(this, "Seleccione un tipo de vehículo valido");
-                return;
-            }
-            
-            //se validan los campos vacíos
-            if(placa.trim().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
-                return;
-            }
-            
-            //se valida que la placa aun no este registrada
-            if(placaYaExiste(placa)){
-                JOptionPane.showMessageDialog(this, "La placa ya esta registrada ingrese una diferente");
-                return;
-            }
-            
-            //se crea un objeto dependiendo del tipo de vehículo
-            if(cbTipoVehiculo.getSelectedItem().equals("Bus")){
-                //se valida que la capacidad sea mayor a cero
-                int capacidad = Integer.parseInt(txtCapacidad.getText());
-                
-                vehiculos.add(new Bus(capacidad, placa, recargo));
-            }
-            
-            else if(cbTipoVehiculo.getSelectedItem().equals("Microbuz")){
-                //se valida que la capacidad sea mayor a cero
-                int capacidad = Integer.parseInt(txtCapacidad.getText());
-                
-                vehiculos.add(new Microbus(capacidad, placa, recargo));             
-            }
-            
-            else{
-                //se valida que la capacidad sea mayor a cero
-                double capacidad = Double.parseDouble(txtCapacidad.getText());
-                
-                //se extrae el tipo de tracción y se valida
-                String traccion = txtTraccion.getText();
-                if(traccion.trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
-                    return;
-                }
-                
-                vehiculos.add(new Pickup(traccion, capacidad, placa, recargo));
-            }
-            
-            //se actualiza el archivo y se refrescan los comboBoxes
-            gestorArchivos.guardarVehiculos(vehiculos);
-            cargarComboBoxes();
-            
-            //se refresca la vista y se limpian los campos
-            refrescarTablaVehiculos(vehiculos);
-            limpiarVehiculos();
-      
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnRegistrarVehiculoActionPerformed
-
-    private void btnDarBajaVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaVehiculoActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblVehiculos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el vehículo
-            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
-            
-            //se cambia el estado a inactivo
-            vehiculo.setEstado("inactivo");
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarVehiculos(vehiculos);
-            //se refresca la vista
-            refrescarTablaVehiculos(vehiculos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnDarBajaVehiculoActionPerformed
-
-    private void btnHabilitarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarVehiculoActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblVehiculos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el vehículo
-            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
-            
-            //se cambia el estado a activo
-            vehiculo.setEstado("activo");
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarVehiculos(vehiculos);
-            //se refresca la vista
-            refrescarTablaVehiculos(vehiculos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        }       
-        
-    }//GEN-LAST:event_btnHabilitarVehiculoActionPerformed
-
-    private void btnModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarVehiculoActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblVehiculos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el vehículo
-            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
-            
-            //se extraen los datos nuevos
-            double recargo = Double.parseDouble(txtRecargo.getText());
-            
-            if(vehiculo.tipoVehiculo().equals("Pickup")){
-                //se valida el campo
-                String traccion = txtTraccion.getText();
-                
-                if(traccion.trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Llene el campo vacío");
-                    return;
-                }
-                
-                double quintales = Double.parseDouble(txtCapacidad.getText());
-                
-                //se actualiza el objeto
-                Pickup p = (Pickup)vehiculo;
-                
-                p.setTipoDeTraccion(traccion);
-                p.setCapacidadCargaKg(quintales);
-                p.setRecargo(recargo);
-            }
-            else{
-                int capacidadPasajeros = Integer.parseInt(txtCapacidad.getText());
-                
-                //se valida el tipo de bus
-                if(vehiculo.tipoVehiculo().equals("Bus")){
-                    Bus b = (Bus)vehiculo;
-                    
-                    b.setCantidadPasajeros(capacidadPasajeros);
-                    b.setRecargo(recargo);
-                }else{
-                    Microbus mb = (Microbus)vehiculo;
-                    
-                    mb.setCantidadPasajeros(capacidadPasajeros);
-                    mb.setRecargo(recargo);
-                }
-            }
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarVehiculos(vehiculos);
-            //se refresca la vista
-            refrescarTablaVehiculos(vehiculos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del vehículo: " + e.getMessage());
-        } 
-    }//GEN-LAST:event_btnModificarVehiculoActionPerformed
-
-    private void btnBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVehiculoActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se valida que la opción de filtrar sea valida
-            if(cbFiltrarVehiculo.getSelectedIndex() <= 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una opción valida");
-                return;
-            }
-            
-            ArrayList<Vehiculo> filtro = new ArrayList<>();
-            
-            //se filtra la lista dependiendo del tipo de filtro 
-            if(cbFiltrarVehiculo.getSelectedItem().equals("Tipo de Vehículo")){
-                //se valida que el tipo sea valido
-                if(cbTipoVehiculo.getSelectedIndex() <= 0){
-                    JOptionPane.showMessageDialog(this, "Seleccione un tipo de vehículo valido");
-                    return;
-                }
-                
-                filtro = filtrarPorTipoVehiculo((String) cbTipoVehiculo.getSelectedItem());
-            }
-            
-            //se refresca la vista
-            refrescarTablaVehiculos(filtro);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnBuscarVehiculoActionPerformed
-
-    private void btnHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el piloto
-            Piloto piloto = pilotos.get(filaSeleccionada);
-            
-            //se cambia el estado a activo
-            piloto.setEstado("activo");
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarPilotos(pilotos);
-            //se refresca la vista
-            refrescarTablaPilotos(pilotos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        } 
-    }//GEN-LAST:event_btnHabilitarActionPerformed
-
-    private void btnRegistrarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPilotoActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se extraen los datos de los campos
-            String nombre = txtNombre.getText();
-            String dpi = txtDpi.getText();
-            String telefono = txtTelefono.getText();
-            String numeroLicencia = txtNumeroLicencia.getText();
-            
-            //se valida que el tipo de licencia seleccionado sea valido
-            if(cbTipoLicencia.getSelectedIndex() <= 0){
-                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
-                return;
-            }
-            
-            String tipiLicencia = (String) cbTipoLicencia.getSelectedItem();
-            
-            //se validan los campos vacíos
-            if(nombre.trim().isEmpty() || dpi.trim().isEmpty() || 
-                    telefono.trim().isEmpty() || numeroLicencia.trim().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
-                return;
-            }
-            
-            //se valida que el dpi aun no este registrado
-            if(dpiYaExiste(dpi)){
-                JOptionPane.showMessageDialog(this, "El número de DPI ya esta registrada ingrese una diferente");
-                return;
-            }
-            //se valida que el número de licencia aun no este registrado
-            if(numeroLicenciaYaExiste(numeroLicencia)){
-                JOptionPane.showMessageDialog(this, "El número de licencia ya esta registrada ingrese una diferente");
-                return;
-            }            
-            
-            //se crea el objeto y se añade a la lista
-            pilotos.add(new Piloto(numeroLicencia, tipiLicencia, nombre, dpi, telefono));
-            
-            //se actualiza el archivo y se refrescan los comboBoxes
-            gestorArchivos.guardarPilotos(pilotos);
-            cargarComboBoxes();
-            
-            
-            //se refresca la vista y se limpian los campos
-            refrescarTablaPilotos(pilotos);
-            limpiarPilotos();
-      
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnRegistrarPilotoActionPerformed
-
-    private void btnDarBajaPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaPilotoActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el piloto
-            Piloto piloto = pilotos.get(filaSeleccionada);
-            
-            //se cambia el estado a inactivo
-            piloto.setEstado("inactivo");
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarPilotos(pilotos);
-            //se refresca la vista
-            refrescarTablaPilotos(pilotos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        }       
-        
-    }//GEN-LAST:event_btnDarBajaPilotoActionPerformed
-
-    private void btnModificarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPilotoActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae el piloto
-            Piloto piloto = pilotos.get(filaSeleccionada);
-            
-            //se extraen los datos nuevos
-            String nombre = txtNombre.getText();
-            String telefono = txtTelefono.getText();
-            
-            //se valida que el tipo de licencía seleccionado sea valido
-            if(cbTipoLicencia.getSelectedIndex() <= 0){
-                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
-                return;
-            }
-            
-            String tipoLicencia = (String) cbTipoLicencia.getSelectedItem();
-            
-            //se actualian las credenciales del piloto
-            piloto.setNombre(nombre);
-            piloto.setTelefono(telefono);
-            piloto.setTipoLicencia(tipoLicencia);
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarPilotos(pilotos);
-            //se refresca la vista
-            refrescarTablaPilotos(pilotos);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del piloto: " + e.getMessage());
-        } 
-    }//GEN-LAST:event_btnModificarPilotoActionPerformed
-
-    private void btnBuscarPilotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPilotosActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que la opción de filtrar sea valida
-            if(cbFiltrarPorPilotos.getSelectedIndex() <= 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una opción valida");
-                return;
-            }
-            
-            ArrayList<Piloto> filtro = new ArrayList<>();
-            
-            //se filtra la lista dependiendo del tipo de filtro 
-            if(cbFiltrarPorPilotos.getSelectedItem().equals("Tipo de Licencia")){
-                //se valida que el tipo sea valido
-                if(cbTipoLicencia.getSelectedIndex() <= 0){
-                    JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
-                    return;
-                }
-                
-                filtro = filtrarPorTipoLicencia((String) cbTipoLicencia.getSelectedItem());
-            }
-            else if (cbFiltrarPorPilotos.getSelectedItem().equals("Nombre")){
-                //se valida que el nombre no este vacío
-                String nombre  = txtNombre.getText();
-                if(nombre.trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Llene el campo de nombre");
-                    return;
-                }
-                
-                filtro = filtrarPorNombrePiloto(nombre);
-            }
-            else{
-                //se valida que el dpi no este vacío
-                String dpi  = txtDpi.getText();
-                if(dpi.trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Llene el campo de DPI");
-                    return;
-                }
-                
-                filtro = filtrarPorDpiPiloto(dpi);                
-            }
-            
-            //se refresca la vista
-            refrescarTablaPilotos(filtro);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnBuscarPilotosActionPerformed
-
-    private void txtDestinoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoRutaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinoRutaActionPerformed
-
-    private void btnRegistrarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRutaActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se extraen los datos de los campos
-            String origen = txtOrigenRuta.getText();
-            String destino = txtDestinoRuta.getText();
-            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
-            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
-            
-            //se validan los campos vacíos
-            if(origen.trim().isEmpty() || destino.trim().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
-                return;
-            }
-            
-            //se crea el objeto y se añade a la lista
-            rutas.add(new Ruta(origen, destino, distancia, tarifa));
-            
-            //se actualiza el archivo y se refrescan los comboBoxes
-            gestorArchivos.guardarRutas(rutas);
-            cargarComboBoxes();
-            
-            
-            //se refresca la vista y se limpian los campos
-            refrescarTablaRutas(rutas);
-            limpiarRutas();
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error: valide los campos: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnRegistrarRutaActionPerformed
-
-    private void btnDarBajaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaRutaActionPerformed
-        // TODO add your handling code here:
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblRutas.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae la ruta
-            Ruta ruta = rutas.get(filaSeleccionada);
-            
-            //se cambia el estado a false
-            ruta.setEstado(false);
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarRutas(rutas);
-            //se refresca la vista
-            refrescarTablaRutas(rutas);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        }           
-        
-    }//GEN-LAST:event_btnDarBajaRutaActionPerformed
-
-    private void btnHabilitarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarRutaActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblRutas.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae la ruta
-            Ruta ruta = rutas.get(filaSeleccionada);
-            
-            //se cambia el estado a true
-            ruta.setEstado(true);
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarRutas(rutas);
-            //se refresca la vista
-            refrescarTablaRutas(rutas);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
-        }  
-    }//GEN-LAST:event_btnHabilitarRutaActionPerformed
-
-    private void btnBuscarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRutaActionPerformed
-        // TODO add your handling code here:
-        try {
-            ArrayList<Ruta> filtro = new ArrayList<>();
-            
-            //se filtra la lista por el destino
-            String destino = txtDestinoRuta.getText();
-            //se valida el campo
-            if(destino.trim().isEmpty()){
-                JOptionPane.showMessageDialog(this, "Llene el campo vacío");
-                return;
-            }
-            
-            filtro = filtrarPorDestino(destino);
-            
-            //se refresca la vista
-            refrescarTablaRutas(filtro);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
-        }        
-        
-    }//GEN-LAST:event_btnBuscarRutaActionPerformed
-
-    private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
-        // TODO add your handling code here:
-        
-        try {
-            //se valida que se selecione una fila valida
-            int filaSeleccionada = tblRutas.getSelectedRow();
-            if(filaSeleccionada < 0){
-                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
-                return;
-            }
-            
-            //se extrae la ruta
-            Ruta ruta = rutas.get(filaSeleccionada);
-            
-            //se extraen los datos nuevos
-            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
-            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
-            
-            //se actualian los datos de la ruta
-            ruta.setKilometros(distancia);
-            ruta.setTarifaBase(tarifa);
-            
-            //se refrescan los comboBoxes
-            cargarComboBoxes();
-            //se actualiza el archivo
-            gestorArchivos.guardarRutas(rutas);
-            //se refresca la vista
-            refrescarTablaRutas(rutas);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos de la ruta: " + e.getMessage());
-        } 
-    }//GEN-LAST:event_btnModificarRutaActionPerformed
-
     private void btnFiltrarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarReporteActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             //se extraen los datos
             LocalDate desde = dchDesdeFecha.getDate().toInstant().
-                    atZone(ZoneId.systemDefault()).toLocalDate();
+            atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate hasta = dchHastaFecha.getDate().toInstant().
-                    atZone(ZoneId.systemDefault()).toLocalDate();
-        
+            atZone(ZoneId.systemDefault()).toLocalDate();
+
             //se valida el tipo de filtro a aplicar
             if(rbtnRuta.isSelected()){
                 lblTextTipoFilro.setText("Reporte por Ruta");
@@ -2101,39 +1494,193 @@ public class FormTransportes extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar los ingresos: " + e.getMessage());
         }
-        
+
     }//GEN-LAST:event_btnFiltrarReporteActionPerformed
 
     private void btnRegistrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarServicioActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             //se extraen los datos de los campos
             Vehiculo vehiculo = (Vehiculo) cbVehiculoMantenimiento.getSelectedItem();
-            LocalDate fecha = dchFechaViaje.getDate().toInstant().
-                    atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fecha = dchFechaMantenimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             double costo = Double.parseDouble(txtCostoMantenimiento.getText());
-            
+
             //se crea el objeto y se añade a la lista
             mantenimientos.add(new Mantenimiento(vehiculo, fecha, costo));
-            
+            //se cambia el estado del vehículo y el kilometraje vuelve a cero
+            vehiculo.setEstado("activo");
+            vehiculo.resetearKilometraje();
             //se actualiza el archivo y se refrescan los comboBoxes
             gestorArchivos.guardarMantenimientos(mantenimientos);
+            gestorArchivos.guardarVehiculos(vehiculos);
             cargarComboBoxes();
-            
+
             //se refresca la vista y se limpian los campos
             refrescarTablaServicios();
             refrescarTablaVehiculosRequierenMantenimiento();
             limpiarMantenimiento();
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error: valide los campos: " + e.getMessage());
         }
     }//GEN-LAST:event_btnRegistrarServicioActionPerformed
 
+    private void btnHabilitarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarRutaActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+
+            //se cambia el estado a true
+            ruta.setEstado(true);
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarRutas(rutas);
+            //se refresca la vista
+            refrescarTablaRutas(rutas);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnHabilitarRutaActionPerformed
+
+    private void btnDarBajaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaRutaActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+
+            //se cambia el estado a false
+            ruta.setEstado(false);
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarRutas(rutas);
+            //se refresca la vista
+            refrescarTablaRutas(rutas);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnDarBajaRutaActionPerformed
+
+    private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+
+            //se extraen los datos nuevos
+            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
+            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
+
+            //se actualian los datos de la ruta
+            ruta.setKilometros(distancia);
+            ruta.setTarifaBase(tarifa);
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarRutas(rutas);
+            //se refresca la vista
+            refrescarTablaRutas(rutas);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos de la ruta: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarRutaActionPerformed
+
+    private void btnBuscarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRutaActionPerformed
+        // TODO add your handling code here:
+        try {
+            ArrayList<Ruta> filtro = new ArrayList<>();
+
+            //se filtra la lista por el destino
+            String destino = txtDestinoRuta.getText();
+            //se valida el campo
+            if(destino.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene el campo vacío");
+                return;
+            }
+
+            filtro = filtrarPorDestino(destino);
+
+            //se refresca la vista
+            refrescarTablaRutas(filtro);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnBuscarRutaActionPerformed
+
+    private void btnRegistrarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRutaActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se extraen los datos de los campos
+            String origen = txtOrigenRuta.getText();
+            String destino = txtDestinoRuta.getText();
+            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
+            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
+
+            //se validan los campos vacíos
+            if(origen.trim().isEmpty() || destino.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+
+            //se crea el objeto y se añade a la lista
+            rutas.add(new Ruta(origen, destino, distancia, tarifa));
+
+            //se actualiza el archivo y se refrescan los comboBoxes
+            gestorArchivos.guardarRutas(rutas);
+            cargarComboBoxes();
+
+            //se refresca la vista y se limpian los campos
+            refrescarTablaRutas(rutas);
+            limpiarRutas();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error: valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarRutaActionPerformed
+
+    private void txtDestinoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoRutaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDestinoRutaActionPerformed
+
     private void btnRefrescarRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarRutasActionPerformed
         // TODO add your handling code here:
-        
+
         refrescarTablaRutas(rutas);
     }//GEN-LAST:event_btnRefrescarRutasActionPerformed
 
@@ -2142,10 +1689,432 @@ public class FormTransportes extends javax.swing.JFrame {
         refrescarTablaPilotos(pilotos);
     }//GEN-LAST:event_btnRefrescarPilotosActionPerformed
 
+    private void btnRegistrarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPilotoActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se extraen los datos de los campos
+            String nombre = txtNombre.getText();
+            String dpi = txtDpi.getText();
+            String telefono = txtTelefono.getText();
+            String numeroLicencia = txtNumeroLicencia.getText();
+
+            //se valida que el tipo de licencia seleccionado sea valido
+            if(cbTipoLicencia.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                return;
+            }
+
+            String tipiLicencia = (String) cbTipoLicencia.getSelectedItem();
+
+            //se validan los campos vacíos
+            if(nombre.trim().isEmpty() || dpi.trim().isEmpty() ||
+                telefono.trim().isEmpty() || numeroLicencia.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+
+            //se valida que el dpi aun no este registrado
+            if(dpiYaExiste(dpi)){
+                JOptionPane.showMessageDialog(this, "El número de DPI ya esta registrada ingrese una diferente");
+                return;
+            }
+            //se valida que el número de licencia aun no este registrado
+            if(numeroLicenciaYaExiste(numeroLicencia)){
+                JOptionPane.showMessageDialog(this, "El número de licencia ya esta registrada ingrese una diferente");
+                return;
+            }
+
+            //se crea el objeto y se añade a la lista
+            pilotos.add(new Piloto(numeroLicencia, tipiLicencia, nombre, dpi, telefono));
+
+            //se actualiza el archivo y se refrescan los comboBoxes
+            gestorArchivos.guardarPilotos(pilotos);
+            cargarComboBoxes();
+
+            //se refresca la vista y se limpian los campos
+            refrescarTablaPilotos(pilotos);
+            limpiarPilotos();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarPilotoActionPerformed
+
+    private void btnHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
+
+            //se cambia el estado a activo
+            piloto.setEstado("activo");
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarPilotos(pilotos);
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnHabilitarActionPerformed
+
+    private void btnDarBajaPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaPilotoActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
+
+            //se cambia el estado a inactivo
+            piloto.setEstado("inactivo");
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarPilotos(pilotos);
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnDarBajaPilotoActionPerformed
+
+    private void btnModificarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPilotoActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
+
+            //se extraen los datos nuevos
+            String nombre = txtNombre.getText();
+            String telefono = txtTelefono.getText();
+
+            //se valida que el tipo de licencía seleccionado sea valido
+            if(cbTipoLicencia.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                return;
+            }
+
+            String tipoLicencia = (String) cbTipoLicencia.getSelectedItem();
+
+            //se actualian las credenciales del piloto
+            piloto.setNombre(nombre);
+            piloto.setTelefono(telefono);
+            piloto.setTipoLicencia(tipoLicencia);
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarPilotos(pilotos);
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del piloto: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarPilotoActionPerformed
+
+    private void btnBuscarPilotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPilotosActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que la opción de filtrar sea valida
+            if(cbFiltrarPorPilotos.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una opción valida");
+                return;
+            }
+
+            ArrayList<Piloto> filtro = new ArrayList<>();
+
+            //se filtra la lista dependiendo del tipo de filtro
+            if(cbFiltrarPorPilotos.getSelectedItem().equals("Tipo de Licencia")){
+                //se valida que el tipo sea valido
+                if(cbTipoLicencia.getSelectedIndex() <= 0){
+                    JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                    return;
+                }
+
+                filtro = filtrarPorTipoLicencia((String) cbTipoLicencia.getSelectedItem());
+            }
+            else if (cbFiltrarPorPilotos.getSelectedItem().equals("Nombre")){
+                //se valida que el nombre no este vacío
+                String nombre  = txtNombre.getText();
+                if(nombre.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo de nombre");
+                    return;
+                }
+
+                filtro = filtrarPorNombrePiloto(nombre);
+            }
+            else{
+                //se valida que el dpi no este vacío
+                String dpi  = txtDpi.getText();
+                if(dpi.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo de DPI");
+                    return;
+                }
+
+                filtro = filtrarPorDpiPiloto(dpi);
+            }
+
+            //se refresca la vista
+            refrescarTablaPilotos(filtro);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscarPilotosActionPerformed
+
     private void btnRefrescarVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescarVehiculosActionPerformed
         // TODO add your handling code here:
         refrescarTablaVehiculos(vehiculos);
     }//GEN-LAST:event_btnRefrescarVehiculosActionPerformed
+
+    private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se extraen los datos de los campos
+            String placa = txtPlaca.getText();
+            double recargo = Double.parseDouble(txtRecargo.getText());
+
+            //se valida que el tipo de vehículo seleccionado sea valido
+            if(cbTipoVehiculo.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de vehículo valido");
+                return;
+            }
+
+            //se validan los campos vacíos
+            if(placa.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+
+            //se valida que la placa aun no este registrada
+            if(placaYaExiste(placa)){
+                JOptionPane.showMessageDialog(this, "La placa ya esta registrada ingrese una diferente");
+                return;
+            }
+
+            //se crea un objeto dependiendo del tipo de vehículo
+            if(cbTipoVehiculo.getSelectedItem().equals("Bus")){
+                //se valida que la capacidad sea mayor a cero
+                int capacidad = Integer.parseInt(txtCapacidad.getText());
+
+                vehiculos.add(new Bus(capacidad, placa, recargo));
+            }
+
+            else if(cbTipoVehiculo.getSelectedItem().equals("Microbuz")){
+                //se valida que la capacidad sea mayor a cero
+                int capacidad = Integer.parseInt(txtCapacidad.getText());
+
+                vehiculos.add(new Microbus(capacidad, placa, recargo));
+            }
+
+            else{
+                //se valida que la capacidad sea mayor a cero
+                double capacidad = Double.parseDouble(txtCapacidad.getText());
+
+                //se extrae el tipo de tracción y se valida
+                String traccion = txtTraccion.getText();
+                if(traccion.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                    return;
+                }
+
+                vehiculos.add(new Pickup(traccion, capacidad, placa, recargo));
+            }
+
+            //se actualiza el archivo y se refrescan los comboBoxes
+            gestorArchivos.guardarVehiculos(vehiculos);
+            cargarComboBoxes();
+
+            //se refresca la vista y se limpian los campos
+            refrescarTablaVehiculos(vehiculos);
+            limpiarVehiculos();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarVehiculoActionPerformed
+
+    private void btnHabilitarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarVehiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblVehiculos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el vehículo
+            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
+
+            //se cambia el estado a activo
+            vehiculo.setEstado("activo");
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarVehiculos(vehiculos);
+            //se refresca la vista
+            refrescarTablaVehiculos(vehiculos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnHabilitarVehiculoActionPerformed
+
+    private void btnDarBajaVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaVehiculoActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblVehiculos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el vehículo
+            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
+
+            //se cambia el estado a inactivo
+            vehiculo.setEstado("inactivo");
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarVehiculos(vehiculos);
+            //se refresca la vista
+            refrescarTablaVehiculos(vehiculos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnDarBajaVehiculoActionPerformed
+
+    private void btnModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarVehiculoActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblVehiculos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+
+            //se extrae el vehículo
+            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
+
+            //se extraen los datos nuevos
+            double recargo = Double.parseDouble(txtRecargo.getText());
+
+            if(vehiculo.tipoVehiculo().equals("Pickup")){
+                //se valida el campo
+                String traccion = txtTraccion.getText();
+
+                if(traccion.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo vacío");
+                    return;
+                }
+
+                double quintales = Double.parseDouble(txtCapacidad.getText());
+
+                //se actualiza el objeto
+                Pickup p = (Pickup)vehiculo;
+
+                p.setTipoDeTraccion(traccion);
+                p.setCapacidadCargaKg(quintales);
+                p.setRecargo(recargo);
+            }
+            else{
+                int capacidadPasajeros = Integer.parseInt(txtCapacidad.getText());
+
+                //se valida el tipo de bus
+                if(vehiculo.tipoVehiculo().equals("Bus")){
+                    Bus b = (Bus)vehiculo;
+
+                    b.setCantidadPasajeros(capacidadPasajeros);
+                    b.setRecargo(recargo);
+                }else{
+                    Microbus mb = (Microbus)vehiculo;
+
+                    mb.setCantidadPasajeros(capacidadPasajeros);
+                    mb.setRecargo(recargo);
+                }
+            }
+
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            gestorArchivos.guardarVehiculos(vehiculos);
+            //se refresca la vista
+            refrescarTablaVehiculos(vehiculos);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del vehículo: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarVehiculoActionPerformed
+
+    private void btnBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVehiculoActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            //se valida que la opción de filtrar sea valida
+            if(cbFiltrarVehiculo.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una opción valida");
+                return;
+            }
+
+            ArrayList<Vehiculo> filtro = new ArrayList<>();
+
+            //se filtra la lista dependiendo del tipo de filtro
+            if(cbFiltrarVehiculo.getSelectedItem().equals("Tipo de Vehículo")){
+                //se valida que el tipo sea valido
+                if(cbTipoVehiculo.getSelectedIndex() <= 0){
+                    JOptionPane.showMessageDialog(this, "Seleccione un tipo de vehículo valido");
+                    return;
+                }
+
+                filtro = filtrarPorTipoVehiculo((String) cbTipoVehiculo.getSelectedItem());
+            }
+
+            //se refresca la vista
+            refrescarTablaVehiculos(filtro);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnBuscarVehiculoActionPerformed
 
     //############################## REGIONES ##################################
     
@@ -2156,6 +2125,7 @@ public class FormTransportes extends javax.swing.JFrame {
         cargarComboBoxesTipoVehiculo();
         refrescarValoresMantenimiento();
         cargarComboBoxesVehiculoMantenimiento();
+        refrescarTablaVehiculosRequierenMantenimiento();
     }
     
     private void cargarComboBoxesTipoVehiculo(){
@@ -2448,16 +2418,18 @@ public class FormTransportes extends javax.swing.JFrame {
     
     private void refrescarTablaVehiculosRequierenMantenimiento(){
         //se obtiene el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) tblVehiculos.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblVehiculosRequierenMantenimiento.getModel();
         modelo.setRowCount(0); //se limpia
         
         //se recorre la lista y se agregan los vehículos con estado mantenimiento
         for (Vehiculo vehiculo : vehiculos) {
-            modelo.addRow(new Object[]{
+            if(vehiculo.esEstado("mantenimiento")){
+                modelo.addRow(new Object[]{
                 vehiculo.tipoVehiculo(), //tipo
                 vehiculo.getPlaca(), //placa
                 vehiculo.getKilometraje(), //kilometraje               
-            });
+                });
+            }
         }        
     }
     
@@ -2793,14 +2765,12 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
