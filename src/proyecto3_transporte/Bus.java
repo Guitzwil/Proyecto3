@@ -13,7 +13,7 @@ public class Bus extends Vehiculo {
     
     public Bus(int cantidadPasajeros, String placa, double recargo){
         super(placa, recargo);
-        this.cantidadPasajeros = cantidadPasajeros;
+        setCantidadPasajeros(cantidadPasajeros);
     }
 
     public int getCantidadPasajeros() {
@@ -21,6 +21,9 @@ public class Bus extends Vehiculo {
     }
 
     public void setCantidadPasajeros(int cantidadPasajeros) {
+        //se valida que la cantidad no sea menor a uno
+        if(cantidadPasajeros < 1)
+            throw new IllegalArgumentException("La capacidad no puede ser menor a uno");
         this.cantidadPasajeros = cantidadPasajeros;
     }   
  

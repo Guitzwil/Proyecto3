@@ -10,25 +10,19 @@ package proyecto3_transporte;
  */
 public class Piloto extends Persona{
     //metodos
-    private String idPiloto;
     private String numeroLicencia;
     private String tipoLicencia;
-    private boolean disponibilidad;
+    private String estado;
     
     //constructor
-    public Piloto(String idPiloto, String numeroLicencia, String tipoLicencia, boolean disponibilidad, String nombre, String dpi, String telefono) {
+    public Piloto(String numeroLicencia, String tipoLicencia, String nombre, String dpi, String telefono) {
         super(nombre, dpi, telefono);
-        this.idPiloto = idPiloto;
         this.numeroLicencia = numeroLicencia;
         this.tipoLicencia = tipoLicencia;
-        this.disponibilidad = disponibilidad;
+        this.estado = "activo";
     }
  
     //metodos
-    public String getIdPiloto() {
-        return idPiloto;
-    }
-
     public String getNumeroLicencia() {
         return numeroLicencia;
     }
@@ -37,8 +31,15 @@ public class Piloto extends Persona{
         return tipoLicencia;
     }
 
-    public boolean isDisponibilidad() {
-        return disponibilidad;
+    public String getEstado() {
+        return estado;
     }
-    
+  
+    public void setestado(String estado){
+        //se valida que solo se activo o inactivo
+        if(!estado.equalsIgnoreCase("activo") || !estado.equalsIgnoreCase("inactivo"))
+            return;
+        
+        this.estado = estado;
+    }
 }

@@ -19,7 +19,7 @@ public abstract class Vehiculo {
         this.placa = placa;
         this.estado = "activo";
         this.kilometraje = 0;
-        this.recargo = recargo;
+        setRecargo(recargo);
     }
     
     public abstract boolean validarCapacidadMaxima(double cantidad);
@@ -80,6 +80,10 @@ public abstract class Vehiculo {
     }
 
     public void setRecargo(double recargo) {
+        //se valida que el recargo no sea negativo
+        if(recargo < 0)
+            throw new IllegalArgumentException("El recargo no puede ser negativo");
+        
         this.recargo = recargo;
     }
     

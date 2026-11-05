@@ -15,7 +15,7 @@ public class Pickup extends Vehiculo{
     public Pickup(String tipoDeTraccion, double capacidadCargaKg, String placa, double recargo){
         super(placa, recargo);
         this.tipoDeTraccion = tipoDeTraccion;
-        this.capacidadCargaKg = capacidadCargaKg;
+        setCapacidadCargaKg(capacidadCargaKg);
     }
 
     public String getTipoDeTraccion() {
@@ -31,6 +31,10 @@ public class Pickup extends Vehiculo{
     }
 
     public void setCapacidadCargaKg(double capacidadCargaKg) {
+        //se valida que sea mayor a cero
+        if(capacidadCargaKg < 1)
+            throw new IllegalArgumentException("La capacidad no puede ser menor a uno");
+        
         this.capacidadCargaKg = capacidadCargaKg;
     }
 
