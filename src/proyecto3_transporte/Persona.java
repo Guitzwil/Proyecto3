@@ -22,6 +22,10 @@ public abstract class Persona {
     }
     
     //metodos 
+    public boolean esDpi(String dpi){
+        return (this.dpi.equalsIgnoreCase(dpi));
+    }
+    
     public String getNombre() {
         return nombre;
     }

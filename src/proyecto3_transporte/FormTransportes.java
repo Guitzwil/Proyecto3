@@ -78,19 +78,19 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtNombre = new javax.swing.JTextField();
+        txtDpi = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        cbTipoLicencia = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblTablaPilotos = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        txtNumeroLicencia = new javax.swing.JTextField();
+        btnBuscarPilotos = new javax.swing.JButton();
+        btnModificarPiloto = new javax.swing.JButton();
+        btnDarBajaPiloto = new javax.swing.JButton();
+        btnHabilitar = new javax.swing.JButton();
+        btnRegistrarPiloto = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -356,9 +356,9 @@ public class FormTransportes extends javax.swing.JFrame {
 
         jLabel11.setText("Tipo de Licencia:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de licencia--" }));
+        cbTipoLicencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de licencia--" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblTablaPilotos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -377,26 +377,28 @@ public class FormTransportes extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable1);
+        jScrollPane4.setViewportView(tblTablaPilotos);
 
         jLabel9.setText("Numero de licencia");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Buscar");
+        btnBuscarPilotos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnBuscarPilotos.setText("Buscar");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Modificar");
+        btnModificarPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnModificarPiloto.setText("Modificar");
+        btnModificarPiloto.addActionListener(this::btnModificarPilotoActionPerformed);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Dar Baja");
+        btnDarBajaPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDarBajaPiloto.setText("Dar Baja");
+        btnDarBajaPiloto.addActionListener(this::btnDarBajaPilotoActionPerformed);
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Habilitar");
-        jButton4.addActionListener(this::jButton4ActionPerformed);
+        btnHabilitar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnHabilitar.setText("Habilitar");
+        btnHabilitar.addActionListener(this::btnHabilitarActionPerformed);
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setText("Registrar");
-        jButton5.addActionListener(this::jButton5ActionPerformed);
+        btnRegistrarPiloto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrarPiloto.setText("Registrar");
+        btnRegistrarPiloto.addActionListener(this::btnRegistrarPilotoActionPerformed);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -413,22 +415,22 @@ public class FormTransportes extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField5)
-                        .addComponent(jTextField6)
-                        .addComponent(jTextField7)
-                        .addComponent(jComboBox2, 0, 360, Short.MAX_VALUE)
-                        .addComponent(jTextField8))
+                        .addComponent(txtNombre)
+                        .addComponent(txtDpi)
+                        .addComponent(txtTelefono)
+                        .addComponent(cbTipoLicencia, 0, 360, Short.MAX_VALUE)
+                        .addComponent(txtNumeroLicencia))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHabilitar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnRegistrarPiloto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarPilotos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDarBajaPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -441,33 +443,33 @@ public class FormTransportes extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDpi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNumeroLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbTipoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(btnBuscarPilotos)
+                            .addComponent(btnModificarPiloto)
+                            .addComponent(btnDarBajaPiloto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))))
+                            .addComponent(btnHabilitar)
+                            .addComponent(btnRegistrarPiloto))))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -1201,13 +1203,178 @@ public class FormTransportes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarVehiculoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
+            
+            //se cambia el estado a activo
+            piloto.setEstado("activo");
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        } 
+    }//GEN-LAST:event_btnHabilitarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnRegistrarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPilotoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        
+        try {
+            //se extraen los datos de los campos
+            String nombre = txtNombre.getText();
+            String dpi = txtDpi.getText();
+            String telefono = txtTelefono.getText();
+            String numeroLicencia = txtNumeroLicencia.getText();
+            
+            //se valida que el tipo de licencia seleccionado sea valido
+            if(cbTipoLicencia.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de licencia valido");
+                return;
+            }
+            
+            String tipiLicencia = (String) cbTipoLicencia.getSelectedItem();
+            
+            //se validan los campos vacíos
+            if(nombre.trim().isEmpty() || dpi.trim().isEmpty() || 
+                    telefono.trim().isEmpty() || numeroLicencia.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+            
+            //se valida que el dpi aun no este registrado
+            if(dpiYaExiste(dpi)){
+                JOptionPane.showMessageDialog(this, "El número de DPI ya esta registrada ingrese una diferente");
+                return;
+            }
+            //se valida que el número de licencia aun no este registrado
+            if(numeroLicenciaYaExiste(numeroLicencia)){
+                JOptionPane.showMessageDialog(this, "El número de licencia ya esta registrada ingrese una diferente");
+                return;
+            }            
+            
+            //se crea el objeto y se añade a la lista
+            pilotos.add(new Piloto(numeroLicencia, tipiLicencia, nombre, dpi, telefono));
+            
+            //se actualiza el archivo y se refrescan los comboBoxes
+            cargarComboBoxes();
+            
+            
+            //se refresca la vista y se limpian los campos
+            refrescarTablaPilotos(pilotos);
+            limpiarPilotos();
+      
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarPilotoActionPerformed
+
+    private void btnDarBajaPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaPilotoActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblTablaPilotos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae el piloto
+            Piloto piloto = pilotos.get(filaSeleccionada);
+            
+            //se cambia el estado a inactivo
+            piloto.setEstado("inactivo");
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }       
+        
+    }//GEN-LAST:event_btnDarBajaPilotoActionPerformed
+
+    private void btnModificarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPilotoActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblVehiculos.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae el vehículo
+            Vehiculo vehiculo = vehiculos.get(filaSeleccionada);
+            
+            //se extraen los datos nuevos
+            double recargo = Double.parseDouble(txtRecargo.getText());
+            
+            if(vehiculo.tipoVehiculo().equals("Pickup")){
+                //se valida el campo
+                String traccion = txtTraccion.getText();
+                
+                if(traccion.trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Llene el campo vacío");
+                    return;
+                }
+                
+                double quintales = Double.parseDouble(txtCapacidad.getText());
+                
+                //se actualiza el objeto
+                Pickup p = (Pickup)vehiculo;
+                
+                p.setTipoDeTraccion(traccion);
+                p.setCapacidadCargaKg(quintales);
+                p.setRecargo(recargo);
+            }
+            else{
+                int capacidadPasajeros = Integer.parseInt(txtCapacidad.getText());
+                
+                //se valida el tipo de bus
+                if(vehiculo.tipoVehiculo().equals("Bus")){
+                    Bus b = (Bus)vehiculo;
+                    
+                    b.setCantidadPasajeros(capacidadPasajeros);
+                    b.setRecargo(recargo);
+                }else{
+                    Microbus mb = (Microbus)vehiculo;
+                    
+                    mb.setCantidadPasajeros(capacidadPasajeros);
+                    mb.setRecargo(recargo);
+                }
+            }
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaVehiculos(vehiculos);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos del vehículo: " + e.getMessage());
+        } 
+    }//GEN-LAST:event_btnModificarPilotoActionPerformed
 
     
     //############################## REGIONES ##################################
@@ -1270,7 +1437,7 @@ public class FormTransportes extends javax.swing.JFrame {
         DefaultComboBoxModel<Piloto> cbPilotosModel = new DefaultComboBoxModel<>();
         for (Piloto piloto : pilotos) {
             //se valida que el piloto no este dado de baja
-            if(!piloto.isDisponibilidad()) continue;
+            if(!piloto.getEstado().equalsIgnoreCase("inactivo")) continue;
             
             cbPilotosModel.addElement(piloto);
         }
@@ -1311,6 +1478,14 @@ public class FormTransportes extends javax.swing.JFrame {
         txtPlaca.setText("");
         txtCapacidad.setText("");
         txtRecargo.setText("");
+    }
+    
+    private void limpiarPilotos(){
+        txtNombre.setText("");
+        txtDpi.setText("");
+        txtTelefono.setText("");
+        txtNumeroLicencia.setText("");
+        cbTipoLicencia.setSelectedIndex(0);
     }
     //EndRegion
     
@@ -1361,6 +1536,22 @@ public class FormTransportes extends javax.swing.JFrame {
         
         return false;
     }
+    private boolean dpiYaExiste(String dpi){
+        //se recorre la lista de vehículos y se busca el dpi
+        for (Piloto piloto : pilotos) {
+            if(piloto.esDpi(dpi))
+                return true;
+        }
+        return false;
+    }
+    private boolean numeroLicenciaYaExiste(String numeroLicencia){
+        //se recorre la lista de vehículos y se busca el numero de licencia
+        for (Piloto piloto : pilotos) {
+            if(piloto.esNumeroLicencia(numeroLicencia))
+                return true;
+        }
+        return false;        
+    }
     //EndRegion
     
     //#Region refrescar tablas
@@ -1390,6 +1581,25 @@ public class FormTransportes extends javax.swing.JFrame {
             });
         }
     }
+    
+    private void refrescarTablaPilotos(ArrayList<Piloto> p){
+        //se obtiene el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblTablaPilotos.getModel();
+        modelo.setRowCount(0); //se limpia
+        
+        //se recorre la lista y se agrega cada elemento a la tabla
+        for (Piloto piloto : p) {
+            modelo.addRow(new Object[]{
+                piloto.getNombre(), //nombre
+                piloto.getDpi(), //dpi
+                piloto.getTelefono(), //telefono
+                piloto.getNumeroLicencia(), //No. licencia
+                piloto.getTipoLicencia(), //tipo de licencia
+                piloto.getEstado() //estado      
+            });
+        }        
+    }
+    
     private void refrescarTablaViajes(){
         double total = 0;
         //se obtiene el modelo de la tabla
@@ -1403,7 +1613,7 @@ public class FormTransportes extends javax.swing.JFrame {
                 viaje.getHora(), //hora
                 viaje.getRuta().ruta(), //ruta
                 viaje.getVehiculo().getPlaca(), //vehiculo
-                viaje.getPiloto().getIdPiloto(), //piloto
+                viaje.getPiloto().getDpi(), //piloto
                 viaje.cantidad(), //cantidad
                 viaje.calcularTotal() //cobro
             });
@@ -1459,29 +1669,29 @@ public class FormTransportes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup FiltrarReportePor;
+    private javax.swing.JButton btnBuscarPilotos;
     private javax.swing.JButton btnBuscarVehiculo;
+    private javax.swing.JButton btnDarBajaPiloto;
     private javax.swing.JButton btnDarBajaVehiculo;
     private javax.swing.JButton btnFiltrarReporte;
     private javax.swing.JButton btnFinalizarViaje;
+    private javax.swing.JButton btnHabilitar;
     private javax.swing.JButton btnHabilitarVehiculo;
+    private javax.swing.JButton btnModificarPiloto;
     private javax.swing.JButton btnModificarVehiculo;
+    private javax.swing.JButton btnRegistrarPiloto;
     private javax.swing.JButton btnRegistrarVehiculo;
     private javax.swing.JButton btnRegistrarViaje;
     private javax.swing.JComboBox<String> cbFiltrarVehiculo;
     private javax.swing.JComboBox<Piloto> cbPiloto;
     private javax.swing.JComboBox<Ruta> cbRuta;
     private javax.swing.JComboBox<String> cbTipoCarga;
+    private javax.swing.JComboBox<String> cbTipoLicencia;
     private javax.swing.JComboBox<String> cbTipoVehiculo;
     private javax.swing.JComboBox<Vehiculo> cbVehiculo;
     private com.toedter.calendar.JDateChooser dchDesdeFecha;
     private com.toedter.calendar.JDateChooser dchFechaViaje;
     private com.toedter.calendar.JDateChooser dchHastaFecha;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1527,11 +1737,6 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblCobroCalculado;
     private javax.swing.JLabel lblTextTipoFilro;
     private javax.swing.JLabel lblTotalReporte;
@@ -1539,11 +1744,16 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnHora;
     private javax.swing.JTable tblReporteIngresos;
+    private javax.swing.JTable tblTablaPilotos;
     private javax.swing.JTable tblVehiculos;
     private javax.swing.JTable tblViajes;
     private javax.swing.JTextField txtCapacidad;
+    private javax.swing.JTextField txtDpi;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumeroLicencia;
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtRecargo;
+    private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTraccion;
     // End of variables declaration//GEN-END:variables
 }

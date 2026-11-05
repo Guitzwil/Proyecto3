@@ -23,6 +23,10 @@ public class Piloto extends Persona{
     }
  
     //metodos
+    public boolean esNumeroLicencia(String numeroLicencia){
+        return (this.numeroLicencia.equalsIgnoreCase(numeroLicencia));
+    }
+    
     public String getNumeroLicencia() {
         return numeroLicencia;
     }
@@ -35,7 +39,7 @@ public class Piloto extends Persona{
         return estado;
     }
   
-    public void setestado(String estado){
+    public void setEstado(String estado){
         //se valida que solo se activo o inactivo
         if(!estado.equalsIgnoreCase("activo") || !estado.equalsIgnoreCase("inactivo"))
             return;
