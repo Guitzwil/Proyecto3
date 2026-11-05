@@ -20,8 +20,8 @@ public class Ruta {
     public Ruta(String origen, String destino, double kilometros, double tarifaBase) {
         this.origen = origen;
         this.destino = destino;
-        this.kilometros = kilometros;
-        this.tarifaBase = tarifaBase;
+        setTarifaBase(tarifaBase);
+        setKilometros(kilometros);
         this.estado = true;
     }
  
@@ -29,6 +29,10 @@ public class Ruta {
     
     public String ruta(){
         return (origen + " - " + destino);
+    }
+    
+    public boolean esDestino(String destino){
+        return (this.destino.equalsIgnoreCase(destino));
     }
     
     public void setEstado(){
@@ -52,8 +56,24 @@ public class Ruta {
         return kilometros;
     }
 
+    public void setKilometros(double kilometros){
+        //se valida que sea mayor a cero
+        if(kilometros < 0)
+            throw new IllegalArgumentException("La distancía no puede ser menor a 1");
+        
+        this.kilometros = kilometros;
+    }
+    
     public double getTarifaBase() {
         return tarifaBase;
+    }
+    
+    public void setTarifaBase(double tarifaBase){
+        //se valida que la tarifa sea valida
+        if(tarifaBase  < 0)
+            throw new IllegalArgumentException("La tarifa no puede ser negativa o cero");
+        
+        this.tarifaBase = tarifaBase;
     }
 
     public boolean isEstado() {

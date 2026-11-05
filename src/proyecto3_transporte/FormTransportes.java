@@ -94,7 +94,59 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         cbFiltrarPorPilotos = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
+        btnActualizarRuta = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        pnlDatosRuta = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        txtOrigenRuta = new javax.swing.JTextField();
+        txtDestinoRuta = new javax.swing.JTextField();
+        txtDistanciaRuta = new javax.swing.JTextField();
+        txtTarifaRuta = new javax.swing.JTextField();
+        btnRegistrarRuta = new javax.swing.JButton();
+        btnBuscarRuta = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        spRutas = new javax.swing.JScrollPane();
+        tblRutas = new javax.swing.JTable();
+        btnModificarRuta = new javax.swing.JButton();
+        btnDarBajaRuta = new javax.swing.JButton();
+        btnHabilitarRuta = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        pnlVehiculosAtencion = new javax.swing.JPanel();
+        spVehiculosMantenimiento = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        pnlResumenMantenimiento = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        lblVehiculosRevisados = new javax.swing.JLabel();
+        lblPendientes = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel40 = new javax.swing.JLabel();
+        cmbPlacaVehiculo = new javax.swing.JComboBox<>();
+        jLabel41 = new javax.swing.JLabel();
+        pnlHistorialServicios = new javax.swing.JPanel();
+        psHistorialServicio = new javax.swing.JScrollPane();
+        tblHistorialServicios = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel42 = new javax.swing.JLabel();
+        txtKilometrajeServicio = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        btnConsultarHistorial = new javax.swing.JButton();
+        cmbSeleccionarServicio = new javax.swing.JComboBox<>();
+        jLabel44 = new javax.swing.JLabel();
+        btnRegistrarServicio = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtDescripciónServicio = new javax.swing.JTextArea();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel8 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -166,7 +218,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1098, Short.MAX_VALUE)
+            .addGap(0, 1159, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,7 +493,7 @@ public class FormTransportes extends javax.swing.JFrame {
                         .addComponent(txtNumeroLicencia, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,30 +541,466 @@ public class FormTransportes extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnActualizarRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnActualizarRuta.setText("Actualizar");
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel29.setText("ADMINISTRACIÓN DE RUTAS");
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel34.setText("Rutas registradas");
+
+        pnlDatosRuta.setBackground(new java.awt.Color(0, 102, 51));
+        pnlDatosRuta.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Origen");
+
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Destino");
+
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Distancia");
+
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Tarifa Base");
+
+        txtOrigenRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtDestinoRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDestinoRuta.addActionListener(this::txtDestinoRutaActionPerformed);
+
+        txtDistanciaRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtTarifaRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        btnRegistrarRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrarRuta.setText("Registrar Ruta");
+        btnRegistrarRuta.addActionListener(this::btnRegistrarRutaActionPerformed);
+
+        btnBuscarRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnBuscarRuta.setText("Buscar Destino");
+        btnBuscarRuta.addActionListener(this::btnBuscarRutaActionPerformed);
+
+        javax.swing.GroupLayout pnlDatosRutaLayout = new javax.swing.GroupLayout(pnlDatosRuta);
+        pnlDatosRuta.setLayout(pnlDatosRutaLayout);
+        pnlDatosRutaLayout.setHorizontalGroup(
+            pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosRutaLayout.createSequentialGroup()
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel32)))
+                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(txtOrigenRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDatosRutaLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(txtDistanciaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel33)
+                    .addGroup(pnlDatosRutaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtDestinoRuta)
+                            .addComponent(txtTarifaRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))))
+                .addGap(112, 112, 112))
+            .addGroup(pnlDatosRutaLayout.createSequentialGroup()
+                .addGap(284, 284, 284)
+                .addComponent(btnRegistrarRuta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarRuta)
+                .addContainerGap(422, Short.MAX_VALUE))
+        );
+        pnlDatosRutaLayout.setVerticalGroup(
+            pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDatosRutaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtOrigenRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDestinoRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDistanciaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTarifaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(pnlDatosRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarRuta)
+                    .addComponent(btnBuscarRuta))
+                .addContainerGap())
+        );
+
+        tblRutas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Origen", "Destino", "Distancia (KM)", "Tarifa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        spRutas.setViewportView(tblRutas);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spRutas, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+                .addGap(77, 77, 77))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spRutas, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        btnModificarRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnModificarRuta.setText("Modificar");
+        btnModificarRuta.addActionListener(this::btnModificarRutaActionPerformed);
+
+        btnDarBajaRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDarBajaRuta.setText("Dar de baja");
+        btnDarBajaRuta.addActionListener(this::btnDarBajaRutaActionPerformed);
+
+        btnHabilitarRuta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnHabilitarRuta.setText("Habilitar");
+        btnHabilitarRuta.addActionListener(this::btnHabilitarRutaActionPerformed);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1098, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel29))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(pnlDatosRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel34))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(btnModificarRuta)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDarBajaRuta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnHabilitarRuta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnActualizarRuta))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 98, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlDatosRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificarRuta)
+                    .addComponent(btnDarBajaRuta)
+                    .addComponent(btnActualizarRuta)
+                    .addComponent(btnHabilitarRuta))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("RUTAS", jPanel5);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel45.setText("Historial de Servicios");
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel38.setText("Vehículos que requieren atención");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        spVehiculosMantenimiento.setViewportView(jTable2);
+
+        javax.swing.GroupLayout pnlVehiculosAtencionLayout = new javax.swing.GroupLayout(pnlVehiculosAtencion);
+        pnlVehiculosAtencion.setLayout(pnlVehiculosAtencionLayout);
+        pnlVehiculosAtencionLayout.setHorizontalGroup(
+            pnlVehiculosAtencionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(spVehiculosMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+        );
+        pnlVehiculosAtencionLayout.setVerticalGroup(
+            pnlVehiculosAtencionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(spVehiculosMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        );
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel35.setText("CONTROL DE MANTENIMIENTO");
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel39.setText("Registrar Servicio");
+
+        pnlResumenMantenimiento.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Vehículos Revisados");
+
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("Pendientes");
+
+        lblVehiculosRevisados.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblVehiculosRevisados.setForeground(new java.awt.Color(255, 255, 255));
+        lblVehiculosRevisados.setText("jLabel38");
+
+        lblPendientes.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblPendientes.setForeground(new java.awt.Color(255, 255, 255));
+        lblPendientes.setText("jLabel38");
+
+        javax.swing.GroupLayout pnlResumenMantenimientoLayout = new javax.swing.GroupLayout(pnlResumenMantenimiento);
+        pnlResumenMantenimiento.setLayout(pnlResumenMantenimientoLayout);
+        pnlResumenMantenimientoLayout.setHorizontalGroup(
+            pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResumenMantenimientoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36)
+                    .addComponent(lblVehiculosRevisados))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                .addGroup(pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37)
+                    .addComponent(lblPendientes))
+                .addGap(30, 30, 30))
+        );
+        pnlResumenMantenimientoLayout.setVerticalGroup(
+            pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResumenMantenimientoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVehiculosRevisados)
+                    .addComponent(lblPendientes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlResumenMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel37))
+                .addGap(15, 15, 15))
+        );
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator3.setDoubleBuffered(true);
+
+        jLabel40.setText("PLACA DEL VEHÍCULO");
+
+        cmbPlacaVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel41.setText("FECHA");
+
+        tblHistorialServicios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        psHistorialServicio.setViewportView(tblHistorialServicios);
+
+        javax.swing.GroupLayout pnlHistorialServiciosLayout = new javax.swing.GroupLayout(pnlHistorialServicios);
+        pnlHistorialServicios.setLayout(pnlHistorialServiciosLayout);
+        pnlHistorialServiciosLayout.setHorizontalGroup(
+            pnlHistorialServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(psHistorialServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        pnlHistorialServiciosLayout.setVerticalGroup(
+            pnlHistorialServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(psHistorialServicio, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        );
+
+        jLabel42.setText("KILOMETRAJE");
+
+        jLabel43.setText("SELECCIONAR SERVICIO");
+
+        btnConsultarHistorial.setText("Consultar");
+
+        cmbSeleccionarServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel44.setText("DESCRIPCIÓN DEL MANTENIMIENTO");
+
+        btnRegistrarServicio.setText("Registrar servicio");
+
+        txtDescripciónServicio.setColumns(20);
+        txtDescripciónServicio.setRows(5);
+        jScrollPane5.setViewportView(txtDescripciónServicio);
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1098, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabel35))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(333, 333, 333)
+                                .addComponent(pnlResumenMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel45)
+                                        .addGap(414, 414, 414))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                        .addComponent(pnlHistorialServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnConsultarHistorial)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel38)
+                                            .addComponent(pnlVehiculosAtencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel39))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel44)
+                                    .addComponent(btnRegistrarServicio)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cmbPlacaVehiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtKilometrajeServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42)
+                            .addComponent(jLabel43)
+                            .addComponent(cmbSeleccionarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlResumenMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtKilometrajeServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cmbSeleccionarServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegistrarServicio))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pnlVehiculosAtencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel45)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(pnlHistorialServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnConsultarHistorial)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("MANTENIMIENTO", jPanel7);
@@ -557,6 +1045,7 @@ public class FormTransportes extends javax.swing.JFrame {
 
         btnFiltrarReporte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnFiltrarReporte.setText("Filtrar Reporte");
+        btnFiltrarReporte.addActionListener(this::btnFiltrarReporteActionPerformed);
 
         tblReporteIngresos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -605,7 +1094,7 @@ public class FormTransportes extends javax.swing.JFrame {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(118, 118, 118)
                                 .addComponent(jLabel22)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTextTipoFilro, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -650,7 +1139,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1098, Short.MAX_VALUE)
+            .addGap(0, 1159, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,7 +1263,7 @@ public class FormTransportes extends javax.swing.JFrame {
                             .addComponent(jLabel20)
                             .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1417,6 +1906,165 @@ public class FormTransportes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarPilotosActionPerformed
 
+    private void txtDestinoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoRutaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDestinoRutaActionPerformed
+
+    private void btnRegistrarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarRutaActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            //se extraen los datos de los campos
+            String origen = txtOrigenRuta.getText();
+            String destino = txtDestinoRuta.getText();
+            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
+            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
+            
+            //se validan los campos vacíos
+            if(origen.trim().isEmpty() || destino.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+            
+            //se crea el objeto y se añade a la lista
+            rutas.add(new Ruta(origen, destino, distancia, tarifa));
+            
+            //se actualiza el archivo y se refrescan los comboBoxes
+            cargarComboBoxes();
+            
+            
+            //se refresca la vista y se limpian los campos
+            refrescarTablaRutas(rutas);
+            limpiarRutas();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error: valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarRutaActionPerformed
+
+    private void btnDarBajaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaRutaActionPerformed
+        // TODO add your handling code here:
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+            
+            //se cambia el estado a false
+            ruta.setEstado();
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaRutas(rutas);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }           
+        
+    }//GEN-LAST:event_btnDarBajaRutaActionPerformed
+
+    private void btnHabilitarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarRutaActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+            
+            //se cambia el estado a true
+            ruta.setEstado();
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaRutas(rutas);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado: " + e.getMessage());
+        }  
+    }//GEN-LAST:event_btnHabilitarRutaActionPerformed
+
+    private void btnBuscarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRutaActionPerformed
+        // TODO add your handling code here:
+        try {
+            ArrayList<Ruta> filtro = new ArrayList<>();
+            
+            //se filtra la lista por el destino
+            String destino = txtDestinoRuta.getText();
+            //se valida el campo
+            if(destino.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene el campo vacío");
+                return;
+            }
+            
+            filtro = filtrarPorDestino(destino);
+            
+            //se refresca la vista
+            refrescarTablaRutas(filtro);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar: " + e.getMessage());
+        }        
+        
+    }//GEN-LAST:event_btnBuscarRutaActionPerformed
+
+    private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            //se valida que se selecione una fila valida
+            int filaSeleccionada = tblRutas.getSelectedRow();
+            if(filaSeleccionada < 0){
+                JOptionPane.showMessageDialog(this, "Seleccione una fila de la tabal valida");
+                return;
+            }
+            
+            //se extrae la ruta
+            Ruta ruta = rutas.get(filaSeleccionada);
+            
+            //se extraen los datos nuevos
+            Double distancia = Double.parseDouble(txtDistanciaRuta.getText());
+            Double tarifa = Double.parseDouble(txtTarifaRuta.getText());
+            
+            //se actualian los datos de la ruta
+            ruta.setKilometros(distancia);
+            ruta.setTarifaBase(tarifa);
+            
+            //se refrescan los comboBoxes
+            cargarComboBoxes();
+            //se actualiza el archivo
+            
+            //se refresca la vista
+            refrescarTablaPilotos(pilotos);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos de la ruta: " + e.getMessage());
+        } 
+    }//GEN-LAST:event_btnModificarRutaActionPerformed
+
+    private void btnFiltrarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarReporteActionPerformed
+        // TODO add your handling code here:
+        
+        //se valida el tipo de filtro aplicado
+        
+    }//GEN-LAST:event_btnFiltrarReporteActionPerformed
+
     //############################## REGIONES ##################################
     
     //#Region refrescar comboBoxes
@@ -1526,6 +2174,13 @@ public class FormTransportes extends javax.swing.JFrame {
         txtTelefono.setText("");
         txtNumeroLicencia.setText("");
         cbTipoLicencia.setSelectedIndex(0);
+    }
+    
+    private void limpiarRutas(){
+        txtOrigenRuta.setText("");
+        txtDestinoRuta.setText("");
+        txtTarifaRuta.setText("");
+        txtDistanciaRuta.setText("");
     }
     //EndRegion
     
@@ -1663,6 +2318,22 @@ public class FormTransportes extends javax.swing.JFrame {
         
         lblTotalViajes.setText(convertirDosDecimales.format(total));
     }
+    
+    private void refrescarTablaRutas(ArrayList<Ruta> r){
+        //se obtiene el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblRutas.getModel();
+        modelo.setRowCount(0); //se limpia
+        
+        //se recorre la lista y se agrega cada elemento a la tabla
+        for (Ruta ruta : r) {
+            modelo.addRow(new Object[]{
+                ruta.getOrigen(), //origen
+                ruta.getDestino(), //destino
+                ruta.getKilometros(), //distancia
+                ruta.getTarifaBase(), //tarifa     
+            });
+        }          
+    }
     //EndRegion
     
     //#Region filtrar
@@ -1710,6 +2381,18 @@ public class FormTransportes extends javax.swing.JFrame {
         
         return p;        
     }
+    
+    private ArrayList<Ruta> filtrarPorDestino(String destino){
+        ArrayList<Ruta> r = new ArrayList<>();
+        //se recorre la lista y se filtran por destino
+        for (Ruta ruta : rutas) {
+            if(ruta.esDestino(destino)){
+                r.add(ruta);
+            }
+        }
+        
+        return r;         
+    }
      //EndRegion
     
     //##########################################################################
@@ -1742,17 +2425,25 @@ public class FormTransportes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup FiltrarReportePor;
+    private javax.swing.JButton btnActualizarRuta;
     private javax.swing.JButton btnBuscarPilotos;
+    private javax.swing.JButton btnBuscarRuta;
     private javax.swing.JButton btnBuscarVehiculo;
+    private javax.swing.JButton btnConsultarHistorial;
     private javax.swing.JButton btnDarBajaPiloto;
+    private javax.swing.JButton btnDarBajaRuta;
     private javax.swing.JButton btnDarBajaVehiculo;
     private javax.swing.JButton btnFiltrarReporte;
     private javax.swing.JButton btnFinalizarViaje;
     private javax.swing.JButton btnHabilitar;
+    private javax.swing.JButton btnHabilitarRuta;
     private javax.swing.JButton btnHabilitarVehiculo;
     private javax.swing.JButton btnModificarPiloto;
+    private javax.swing.JButton btnModificarRuta;
     private javax.swing.JButton btnModificarVehiculo;
     private javax.swing.JButton btnRegistrarPiloto;
+    private javax.swing.JButton btnRegistrarRuta;
+    private javax.swing.JButton btnRegistrarServicio;
     private javax.swing.JButton btnRegistrarVehiculo;
     private javax.swing.JButton btnRegistrarViaje;
     private javax.swing.JComboBox<String> cbFiltrarPorPilotos;
@@ -1763,9 +2454,12 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbTipoLicencia;
     private javax.swing.JComboBox<String> cbTipoVehiculo;
     private javax.swing.JComboBox<Vehiculo> cbVehiculo;
+    private javax.swing.JComboBox<String> cmbPlacaVehiculo;
+    private javax.swing.JComboBox<String> cmbSeleccionarServicio;
     private com.toedter.calendar.JDateChooser dchDesdeFecha;
     private com.toedter.calendar.JDateChooser dchFechaViaje;
     private com.toedter.calendar.JDateChooser dchHastaFecha;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1787,8 +2481,25 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1797,6 +2508,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1811,23 +2523,46 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblCobroCalculado;
+    private javax.swing.JLabel lblPendientes;
     private javax.swing.JLabel lblTextTipoFilro;
     private javax.swing.JLabel lblTotalReporte;
     private javax.swing.JLabel lblTotalViajes;
+    private javax.swing.JLabel lblVehiculosRevisados;
+    private javax.swing.JPanel pnlDatosRuta;
+    private javax.swing.JPanel pnlHistorialServicios;
+    private javax.swing.JPanel pnlResumenMantenimiento;
+    private javax.swing.JPanel pnlVehiculosAtencion;
+    private javax.swing.JScrollPane psHistorialServicio;
+    private javax.swing.JScrollPane spRutas;
+    private javax.swing.JScrollPane spVehiculosMantenimiento;
     private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnHora;
+    private javax.swing.JTable tblHistorialServicios;
     private javax.swing.JTable tblReporteIngresos;
+    private javax.swing.JTable tblRutas;
     private javax.swing.JTable tblTablaPilotos;
     private javax.swing.JTable tblVehiculos;
     private javax.swing.JTable tblViajes;
     private javax.swing.JTextField txtCapacidad;
+    private javax.swing.JTextArea txtDescripciónServicio;
+    private javax.swing.JTextField txtDestinoRuta;
+    private javax.swing.JTextField txtDistanciaRuta;
     private javax.swing.JTextField txtDpi;
+    private javax.swing.JTextField txtKilometrajeServicio;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroLicencia;
+    private javax.swing.JTextField txtOrigenRuta;
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtRecargo;
+    private javax.swing.JTextField txtTarifaRuta;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTraccion;
     // End of variables declaration//GEN-END:variables
