@@ -4,11 +4,16 @@
  */
 package proyecto3_transporte;
 
+import java.io.Serializable;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Edgar Mó
  */
-public abstract class Vehiculo {
+public abstract class Vehiculo implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     private String placa;
     private String estado;
     private double kilometraje;
@@ -87,4 +92,8 @@ public abstract class Vehiculo {
         this.recargo = recargo;
     }
     
+    @Override
+    public String toString() {
+        return placa + " - " + kilometraje;
+    }
 }

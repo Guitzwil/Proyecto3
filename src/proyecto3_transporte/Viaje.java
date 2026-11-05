@@ -4,6 +4,7 @@
  */
 package proyecto3_transporte;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +12,9 @@ import java.time.LocalTime;
  *
  * @author estudiante
  */
-public abstract class Viaje implements Facturable{
+public abstract class Viaje implements Facturable, Serializable{
+    private static final long serialVersionUID = 1L;
+    
     //atributos
     private Vehiculo vehiculo;
     private Ruta ruta;
@@ -44,11 +47,11 @@ public abstract class Viaje implements Facturable{
     }
     
     public boolean esVehiculo(Vehiculo vehiculo){
-        return (this.vehiculo.equals(vehiculo));
+        return this.vehiculo.getPlaca().equalsIgnoreCase(vehiculo.getPlaca());
     }
     
     public boolean esPiloto(Piloto piloto){
-        return (this.piloto.equals(piloto));
+        return this.piloto.getNumeroLicencia().equalsIgnoreCase(piloto.getNumeroLicencia());
     }
     
     public void setEstadoViaje(String estado){        

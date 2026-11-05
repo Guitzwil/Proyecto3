@@ -192,7 +192,6 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         cbTipoCarga = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        spnCantidad = new javax.swing.JSpinner();
         btnRegistrarViaje = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         lblCobroCalculado = new javax.swing.JLabel();
@@ -202,6 +201,7 @@ public class FormTransportes extends javax.swing.JFrame {
         lblTotalViajes = new javax.swing.JLabel();
         dchFechaViaje = new com.toedter.calendar.JDateChooser();
         btnFinalizarViaje = new javax.swing.JButton();
+        txtCantidad = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -248,7 +248,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel3.setText("Tipo de vehículo:");
 
         cbTipoVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de Vehículo--", "Bus", "Microbuz", "Pickup" }));
+        cbTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de Vehículo--", "Bus", "Microbus", "Pickup" }));
 
         tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -675,17 +675,17 @@ public class FormTransportes extends javax.swing.JFrame {
 
         tblRutas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Origen", "Destino", "Distancia (KM)", "Tarifa"
+                "Origen", "Destino", "Distancia (KM)", "Tarifa", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1200,9 +1200,6 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setText("Cantidad");
 
-        spnCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        spnCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-
         btnRegistrarViaje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnRegistrarViaje.setText("Registrar Viaje");
         btnRegistrarViaje.addActionListener(this::btnRegistrarViajeActionPerformed);
@@ -1214,17 +1211,17 @@ public class FormTransportes extends javax.swing.JFrame {
 
         tblViajes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fecha", "Hora", "Ruta", "Vehículo", "Piloto", "Cantidad", "Cobro"
+                "Fecha", "Hora", "Ruta", "Vehículo", "Piloto", "Cantidad", "Cobro", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1242,6 +1239,8 @@ public class FormTransportes extends javax.swing.JFrame {
         btnFinalizarViaje.setText("Finalizar Viaje");
         btnFinalizarViaje.addActionListener(this::btnFinalizarViajeActionPerformed);
 
+        txtCantidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1251,30 +1250,29 @@ public class FormTransportes extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel19)
-                                .addComponent(cbTipoCarga, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel18)
-                                .addComponent(spnHora)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel16)
-                                .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel15)
-                                .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14)
-                                .addComponent(spnCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                                .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(cbVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegistrarViaje))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel19)
+                            .addComponent(cbTipoCarga, 0, 239, Short.MAX_VALUE)
+                            .addComponent(jLabel18)
+                            .addComponent(spnHora)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16)
+                            .addComponent(cbRuta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15)
+                            .addComponent(cbPiloto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14)
+                            .addComponent(dchFechaViaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbVehiculo, 0, 239, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarViaje)
+                            .addComponent(txtCantidad))
                         .addGap(86, 86, 86)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(btnFinalizarViaje)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblTotalViajes, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel20)
                             .addComponent(lblCobroCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1325,8 +1323,8 @@ public class FormTransportes extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
                                 .addComponent(btnRegistrarViaje)))
                         .addContainerGap(85, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -1397,7 +1395,7 @@ public class FormTransportes extends javax.swing.JFrame {
                     atZone(ZoneId.systemDefault()).toLocalDate();
             LocalTime hora = ((Date) spnHora.getValue()).toInstant().
                     atZone(ZoneId.systemDefault()).toLocalTime();
-            double cantidad = (double) spnCantidad.getValue();
+            double cantidad = Double.parseDouble(txtCantidad.getText());
             
             //se valida que el tipo de carga sea valido
             if(cbTipoCarga.getSelectedIndex() <= 0){
@@ -1430,11 +1428,11 @@ public class FormTransportes extends javax.swing.JFrame {
             
             //se crea un viaje dependiendo del tipo de carga
             if(cbTipoCarga.getSelectedItem().equals("Pasajeros")){
-                int pasajeros = (int) spnCantidad.getValue();
+                int pasajeros = (int) cantidad;
                 viajes.add(new viajePorPasajero(pasajeros, vehiculo, ruta, piloto, fecha, hora));
             }
             else{
-                double quintales = (double) spnCantidad.getValue();
+                double quintales = cantidad;
                 viajes.add(new ViajeCarga(quintales, vehiculo, ruta, piloto, fecha, hora));
             }
                  
@@ -1447,6 +1445,7 @@ public class FormTransportes extends javax.swing.JFrame {
             vehiculo.setKilometraje(ruta.getKilometros());
             
             //se actualiza el archivo y comboBoxes
+            gestorArchivos.guardarVehiculos(vehiculos);
             gestorArchivos.guardarViajes(viajes);
             cargarComboBoxes();
             
@@ -2072,7 +2071,7 @@ public class FormTransportes extends javax.swing.JFrame {
             //se actualiza el archivo
             gestorArchivos.guardarRutas(rutas);
             //se refresca la vista
-            refrescarTablaPilotos(pilotos);
+            refrescarTablaRutas(rutas);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error al actualizar los datos de la ruta: " + e.getMessage());
@@ -2226,7 +2225,7 @@ public class FormTransportes extends javax.swing.JFrame {
         DefaultComboBoxModel<Piloto> cbPilotosModel = new DefaultComboBoxModel<>();
         for (Piloto piloto : pilotos) {
             //se valida que el piloto no este dado de baja
-            if(!piloto.getEstado().equalsIgnoreCase("inactivo")) continue;
+            if(piloto.getEstado().equalsIgnoreCase("inactivo")) continue;
             
             cbPilotosModel.addElement(piloto);
         }
@@ -2259,7 +2258,7 @@ public class FormTransportes extends javax.swing.JFrame {
         cbRuta.setSelectedIndex(-1);
         dchFechaViaje.setDate(null);
         spnHora.setValue("00:00");
-        spnCantidad.setValue(1);
+        txtCantidad.setText("");
     }
     
     private void limpiarVehiculos(){
@@ -2293,19 +2292,22 @@ public class FormTransportes extends javax.swing.JFrame {
     
     //#Region control de choques
     private boolean elVehiculoEstaDisponible(Vehiculo v, LocalDate fecha){
-        //se filtran los viajes de la fecha pasada como parametro y los viajes en ruta
-        //de ese vehículo
+        // Se filtran los viajes de la fecha pasada como parámetro para ese vehículo
         ArrayList<Viaje> viajesDelVehículo = new ArrayList<>();
         for (Viaje viaje : viajes) {
-            if(viaje.esVehiculo(v) && viaje.esFecha(fecha) && viaje.esEstadoViaje("ruta")){
-                viajesDelVehículo.add(viaje);
+            // Quitamos la validación estricta de "ruta"
+            if(viaje.esVehiculo(v) && viaje.esFecha(fecha)){
+                // Solo contamos el viaje si NO está finalizado ni cancelado
+                if(!viaje.esEstadoViaje("finalizado") && !viaje.esEstadoViaje("cancelado")){
+                    viajesDelVehículo.add(viaje);
+                }
             }
         }
-        
-        //si hay un elmento en la lista el vehívulo esta ocupado
+    
+        // Si hay un elemento en la lista, el vehículo está ocupado
         if(viajesDelVehículo.size() != 0)
             return false;
-        
+    
         return true;
     }
     
@@ -2417,7 +2419,8 @@ public class FormTransportes extends javax.swing.JFrame {
                 viaje.getVehiculo().getPlaca(), //vehiculo
                 viaje.getPiloto().getDpi(), //piloto
                 viaje.cantidad(), //cantidad
-                viaje.calcularTotal() //cobro
+                viaje.calcularTotal(), //cobro
+                viaje.getEstadoViaje() //estado
             });
             
             total += viaje.calcularTotal();
@@ -2437,7 +2440,8 @@ public class FormTransportes extends javax.swing.JFrame {
                 ruta.getOrigen(), //origen
                 ruta.getDestino(), //destino
                 ruta.getKilometros(), //distancia
-                ruta.getTarifaBase(), //tarifa     
+                ruta.getTarifaBase(), //tarifa 
+                (ruta.isEstado() ? "Activa" : "Inactiva") //estado
             });
         }          
     }
@@ -2798,7 +2802,6 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnVehiculo;
     private javax.swing.JScrollPane spRutas;
     private javax.swing.JScrollPane spVehiculosMantenimiento;
-    private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnHora;
     private javax.swing.JTable tblHistorialServicios;
     private javax.swing.JTable tblReporteIngresos;
@@ -2807,6 +2810,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JTable tblVehiculos;
     private javax.swing.JTable tblVehiculosRequierenMantenimiento;
     private javax.swing.JTable tblViajes;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCapacidad;
     private javax.swing.JTextField txtCostoMantenimiento;
     private javax.swing.JTextField txtDestinoRuta;

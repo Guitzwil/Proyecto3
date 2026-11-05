@@ -4,11 +4,15 @@
  */
 package proyecto3_transporte;
 
+import java.io.Serializable;
+
 /**
  *
  * @author estudiante
  */
-public class Piloto extends Persona{
+public class Piloto extends Persona implements Serializable{
+    private static final long serialVersionUID = 1L;    
+    
     //metodos
     private String numeroLicencia;
     private String tipoLicencia;
@@ -22,6 +26,7 @@ public class Piloto extends Persona{
         this.estado = "activo";
     }
  
+    
     //metodos
     public boolean esNumeroLicencia(String numeroLicencia){
         return (this.numeroLicencia.equalsIgnoreCase(numeroLicencia));
@@ -44,10 +49,6 @@ public class Piloto extends Persona{
     }
   
     public void setEstado(String estado){
-        //se valida que solo se activo o inactivo
-        if(!estado.equalsIgnoreCase("activo") || !estado.equalsIgnoreCase("inactivo"))
-            return;
-        
         this.estado = estado;
     }
 
@@ -55,4 +56,8 @@ public class Piloto extends Persona{
         this.tipoLicencia = tipoLicencia;
     }
     
+    @Override
+    public String toString() {
+        return getNombre() + " - " + numeroLicencia;
+    }
 }

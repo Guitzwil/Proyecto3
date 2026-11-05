@@ -4,11 +4,15 @@
  */
 package proyecto3_transporte;
 
+import java.io.Serializable;
+
 /**
  *
  * @author estudiante
  */
-public class Ruta {
+public class Ruta implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     //atributos
     private String origen;
     private String destino;
@@ -75,4 +79,8 @@ public class Ruta {
         return estado;
     }
     
+    @Override
+    public String toString() {
+        return origen + " - " + destino;
+    }
 }

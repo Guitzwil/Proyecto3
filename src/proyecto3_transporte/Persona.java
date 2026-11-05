@@ -4,11 +4,15 @@
  */
 package proyecto3_transporte;
 
+import java.io.Serializable;
+
 /**
  *
  * @author estudiante
  */
-public abstract class Persona {
+public abstract class Persona implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     //atributos
     private String nombre;
     private String dpi;
