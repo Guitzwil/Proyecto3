@@ -47,8 +47,14 @@ public class FormTransportes extends javax.swing.JFrame {
         rutas = gestorArchivos.cargarRutas();
         viajes = gestorArchivos.cargarViajes();
         mantenimientos = gestorArchivos.cargarMantenimientos(vehiculos);
-        //se cargan los comboBoxes
+        //se cargan los comboBoxes y las tablas
         cargarComboBoxes();
+        refrescarTablaPilotos(pilotos);
+        refrescarTablaRutas(rutas);
+        refrescarTablaServicios();
+        refrescarTablaVehiculos(vehiculos);
+        refrescarTablaVehiculosRequierenMantenimiento();
+        refrescarTablaViajes();
     }
 
     /**
