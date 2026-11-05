@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -145,6 +146,49 @@ public ArrayList<Vehiculo> cargarVehiculos() {
         return lista;
     }
     
-        
+    public void guardarMantenimientos(ArrayList<Mantenimiento> listaMantenimientos) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(Archivo_Mantenimiento))) {
+            for (Mantenimiento m : listaMantenimientos) {
+                String placa = (m.getVehiculo() != null) ? m.getVehiculo().getPlaca() : "";
+                pw.println(placa + "," + m.getFecha() + "," + m.getCosto());
+            }
+        } catch (IOException e) {
+            System.err.println("Error al guardar mantenimientos: " + e.getMessage());
+        }
+    }
+
+    public ArrayList<Mantenimiento> cargarMantenimientos(ArrayList<Vehiculo> listaVehiculos) {
+        ArrayList<Mantenimiento> lista = new ArrayList<>();
+        File archivo = new File(Archivo_Mantenimiento);
+        if (!archivo.exists()) return lista;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(",");
+                if (partes.length == 3) {
+                    String placaVehiculo = partes[0];
+                    LocalDate fecha = LocalDate.parse(partes[1]);
+                    double costo = Double.parseDouble(partes[2]);
+
+                    // Eheka pe vehículo oĩva la lista-pe placa rupive
+                    Vehiculo vehiculoEncontrado = null;
+                    for (Vehiculo v : listaVehiculos) {
+                        if (v.getPlaca().equalsIgnoreCase(placaVehiculo)) {
+                            vehiculoEncontrado = v;
+                            break;
+                        }
+                    }
+
+                    if (vehiculoEncontrado != null) {
+                        lista.add(new Mantenimiento(vehiculoEncontrado, fecha, costo));
+                    }
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.err.println("Error al leer mantenimientos: " + e.getMessage());
+        }
+        return lista;
+    }    
 }
 
