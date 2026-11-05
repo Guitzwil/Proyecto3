@@ -4,6 +4,7 @@
  */
 package proyecto3_transporte;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -31,5 +32,10 @@ public class ViajeCarga extends Viaje{
     @Override
     public double calcularTotal(){
         return (super.getVehiculo().getRecargo() * quintales);
+    }
+
+    @Override
+    public String cantidad() {
+        return String.valueOf(quintales);
     }
 }

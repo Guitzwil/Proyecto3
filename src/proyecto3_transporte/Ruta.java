@@ -27,6 +27,10 @@ public class Ruta {
  
     //metodos
     
+    public String ruta(){
+        return (origen + " - " + destino);
+    }
+    
     public void setEstado(){
         if(estado){
             estado = false;
@@ -55,5 +59,5 @@ public class Ruta {
     public boolean isEstado() {
         return estado;
     }
-
+    
 }

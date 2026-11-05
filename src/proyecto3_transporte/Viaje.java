@@ -33,6 +33,8 @@ public abstract class Viaje implements Facturable{
     
     //metodos
 
+    public abstract String cantidad();
+    
     public boolean esEstadoViaje(String estado){
         return (this.estadoViaje.equalsIgnoreCase(estado));
     }

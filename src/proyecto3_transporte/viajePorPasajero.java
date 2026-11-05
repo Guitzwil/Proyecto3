@@ -28,5 +28,10 @@ public class viajePorPasajero extends Viaje{
     public double calcularTotal() {
         return (super.getRuta().getTarifaBase()* pasajeros) + (super.getVehiculo().getRecargo() * pasajeros);
     }
+
+    @Override
+    public String cantidad() {
+        return String.valueOf(pasajeros);
+    }
     
 }

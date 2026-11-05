@@ -30,6 +30,10 @@ public abstract class Vehiculo {
         return (this.estado.equalsIgnoreCase(estado));
     }
     
+    public boolean esPlaca(String placa){
+        return (this.placa.equalsIgnoreCase(placa));
+    }
+    
     public String getPlaca() {
         return placa;
     }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,16 +61,14 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtPlaca = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtKilometraje = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtRecargo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
+        btnRegistrarVehiculo = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtCapacidad = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -169,7 +168,7 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel3.setText("Tipo de vehículo:");
 
         cbTipoVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de Vehículo--", "Buz", "Microbuz", "Pickup" }));
+        cbTipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccione un tipo de Vehículo--", "Bus", "Microbuz", "Pickup" }));
 
         tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,16 +199,6 @@ public class FormTransportes extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("Buscar");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Estado:");
-
-        txtEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Kilometraje:");
-
-        txtKilometraje.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Recargo:");
 
@@ -224,9 +213,14 @@ public class FormTransportes extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton4.setText("Habilitar");
 
-        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(this::btnRegistrarActionPerformed);
+        btnRegistrarVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRegistrarVehiculo.setText("Registrar");
+        btnRegistrarVehiculo.addActionListener(this::btnRegistrarVehiculoActionPerformed);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Capacidad:");
+
+        txtCapacidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -235,16 +229,17 @@ public class FormTransportes extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbTipoVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtKilometraje))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtEstado))
+                                .addComponent(txtCapacidad))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -252,25 +247,18 @@ public class FormTransportes extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRecargo)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbTipoVehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(txtRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRegistrarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
@@ -291,23 +279,19 @@ public class FormTransportes extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtRecargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
                             .addComponent(jButton1)
+                            .addComponent(jButton2)
                             .addComponent(jButton3)
                             .addComponent(jButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegistrar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRegistrarVehiculo))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -830,8 +814,10 @@ public class FormTransportes extends javax.swing.JFrame {
             //se suman los kilometros de la ruta al vehículo
             vehiculo.setKilometraje(ruta.getKilometros());
             
-            //se refresca la tabla y se limpian los campos
+            //se actualiza el archivo
             
+            //se refresca la tabla y se limpian los campos
+            refrescarTablaViajes();
             limpiarViajes();
             
         } catch (Exception e) {
@@ -863,6 +849,9 @@ public class FormTransportes extends javax.swing.JFrame {
             //se cambia el estado del viaje
             viaje.setEstadoViaje("finalizado");
             
+            //se actuzaliza el archivo
+            
+            
             //se valida si el vehículo despues del viaje requiere mantenimiento
             if(!viaje.getVehiculo().esEstado("mantenimiento")) return;
             
@@ -870,15 +859,82 @@ public class FormTransportes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El vehículo con placa " + viaje.getVehiculo().getPlaca() 
                     + " requiere mantenimiento");
             
+            
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al cambiar el estado del viaje");
         }
     }//GEN-LAST:event_btnFinalizarViajeActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void btnRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVehiculoActionPerformed
         // TODO add your handling code here:
         
-        
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+        try {
+            //se extraen los datos de los campos
+            String placa = txtPlaca.getText();
+            double recargo = Double.parseDouble(txtRecargo.getText());
+            
+            //se valida que el tipo de vehículo seleccionado sea valido
+            if(cbTipoVehiculo.getSelectedIndex() <= 0){
+                JOptionPane.showMessageDialog(this, "Seleccione un tipo de vehículo valido");
+                return;
+            }
+            
+            //se validan los campos vacíos
+            if(placa.trim().isEmpty()){
+                JOptionPane.showMessageDialog(this, "Llene los campos vacíos");
+                return;
+            }
+            
+            //se valida que la placa aun no este registrada
+            if(placaYaExiste(placa)){
+                JOptionPane.showMessageDialog(this, "La placa ya esta registrada ingrese una diferente");
+                return;
+            }
+            
+            //se crea un objeto dependiendo del tipo de vehículo
+            if(cbTipoVehiculo.getSelectedItem().equals("Bus")){
+                //se valida que la capacidad sea mayor a cero
+                int capacidad = Integer.parseInt(txtCapacidad.getText());
+                if(capacidad < 1){
+                    JOptionPane.showMessageDialog(this, "La capacidad deve ser mayor a cero");
+                    return;
+                }
+                
+                vehiculos.add(new Bus(capacidad, placa, recargo));
+            }
+            
+            else if(cbTipoVehiculo.getSelectedItem().equals("Microbuz")){
+                //se valida que la capacidad sea mayor a cero
+                int capacidad = Integer.parseInt(txtCapacidad.getText());
+                if(capacidad < 1){
+                    JOptionPane.showMessageDialog(this, "La capacidad deve ser mayor a cero");
+                    return;
+                }
+                
+                vehiculos.add(new Microbus(capacidad, placa, recargo));             
+            }
+            
+            else{
+                //se valida que la capacidad sea mayor a cero
+                double capacidad = Double.parseDouble(txtCapacidad.getText());
+                if(capacidad < 1){
+                    JOptionPane.showMessageDialog(this, "La capacidad deve ser mayor a cero");
+                    return;
+                }
+                
+                vehiculos.add(new Pickup(placa, capacidad, placa, recargo));
+            }
+            
+            //se actualiza el archivo
+            
+            //se refresca la vista y se limpian los campos
+            refrescarTablaVehiculos();
+            limpiarVehiculos();
+      
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error, valide los campos: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarVehiculoActionPerformed
 
     
     //############################## REGIONES ##################################
@@ -976,6 +1032,13 @@ public class FormTransportes extends javax.swing.JFrame {
         spnHora.setValue("00:00");
         spnCantidad.setValue(1);
     }
+    
+    private void limpiarVehiculos(){
+        cbTipoVehiculo.setSelectedIndex(0);
+        txtPlaca.setText("");
+        txtCapacidad.setText("");
+        txtRecargo.setText("");
+    }
     //EndRegion
     
     //#Region control de choques
@@ -1015,6 +1078,65 @@ public class FormTransportes extends javax.swing.JFrame {
     }
     //EndRegion
     
+    //#Region validar identificadores repetidos
+    private boolean placaYaExiste(String placa){
+        //se recorre la lista de vehívulos y se busca la placa
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.esPlaca(placa))
+                return true;
+        }
+        
+        return false;
+    }
+    //EndRegion
+    
+    //#Region refrescar tablas
+    private void refrescarTablaVehiculos(){
+        //se obtiene el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblVehiculos.getModel();
+        modelo.setRowCount(0); //se limpia
+        
+        //se recorre la lista y se agrega cada elemento a la tabla
+        for (Vehiculo vehiculo : vehiculos) {
+            //se castea la capacidad
+            String capacidad = null;
+            if(vehiculo.tipoVehiculo().equals("Bus"))
+                capacidad = String.valueOf(((Bus)vehiculo).getCantidadPasajeros());
+            else if(vehiculo.tipoVehiculo().equals("Microbus"))
+                capacidad = String.valueOf(((Microbus)vehiculo).getCantidadPasajeros());
+            else
+                capacidad = convertirDosDecimales.format(((Pickup)vehiculo).getCapacidadCargaKg());
+            
+            modelo.addRow(new Object[]{
+                vehiculo.tipoVehiculo(), //tipo de vehículo
+                vehiculo.getPlaca(),
+                capacidad, //capacidad
+                vehiculo.getEstado(), //estado
+                vehiculo.getKilometraje() //kilometraje
+                
+            });
+        }
+    }
+    private void refrescarTablaViajes(){
+        //se obtiene el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblViajes.getModel();
+        modelo.setRowCount(0); //se limpia
+        
+        //se recorre la lista y se agrega cada elemento a la tabla
+        for (Viaje viaje : viajes) {
+            modelo.addRow(new Object[]{
+                viaje.getFecha(), //fecha
+                viaje.getHora(), //hora
+                viaje.getRuta().ruta(), //ruta
+                viaje.getVehiculo().getPlaca(), //vehiculo
+                viaje.getPiloto().getIdPiloto(), //piloto
+                viaje.cantidad(), //cantidad
+                viaje.calcularTotal() //cobro
+            });
+        }        
+    }
+    //EndRegion
+    
     //##########################################################################
     
     
@@ -1047,7 +1169,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.ButtonGroup FiltrarReportePor;
     private javax.swing.JButton btnFiltrarReporte;
     private javax.swing.JButton btnFinalizarViaje;
-    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegistrarVehiculo;
     private javax.swing.JButton btnRegistrarViaje;
     private javax.swing.JComboBox<Piloto> cbPiloto;
     private javax.swing.JComboBox<Ruta> cbRuta;
@@ -1087,7 +1209,6 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1118,8 +1239,7 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JTable tblReporteIngresos;
     private javax.swing.JTable tblVehiculos;
     private javax.swing.JTable tblViajes;
-    private javax.swing.JTextField txtEstado;
-    private javax.swing.JTextField txtKilometraje;
+    private javax.swing.JTextField txtCapacidad;
     private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtRecargo;
     // End of variables declaration//GEN-END:variables
