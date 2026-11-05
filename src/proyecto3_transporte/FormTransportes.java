@@ -2588,54 +2588,77 @@ public class FormTransportes extends javax.swing.JFrame {
         ArrayList<Ruta> rutasFiltro = new ArrayList<>();
         ArrayList<Integer> totalViajes = new ArrayList<>();
         ArrayList<Double> totalIngresos = new ArrayList<>();
-        
-        //se filtra los viajes con fecha en el rango de desde a hasta
+
         for (Viaje viaje : viajes) {
-            //si la ruta ya se asigno se aumenta la cantidad de viajes y ingresos
-            if(rutasFiltro.contains(viaje.getRuta())){
-                //se extrae el indice 
-                int i = rutasFiltro.indexOf(viaje.getRuta());
-                totalViajes.set(i, totalViajes.get(i) + 1);
-                totalIngresos.set(i, totalIngresos.get(i) + viaje.calcularTotal());
-            }
-            
-            //se obtiene la fecha
             LocalDate f = viaje.getFecha();
-            if((desde.equals(f) || desde.isAfter(f)) && (hasta.equals(f) || hasta.isBefore(f))){
-                rutasFiltro.add(viaje.getRuta());
-                totalViajes.add(1);
-                totalIngresos.add(viaje.calcularTotal());
+
+            
+            if ((f.isAfter(desde) || f.equals(desde)) && (f.isBefore(hasta) || f.equals(hasta))) {
+
+                Ruta rutaViaje = viaje.getRuta();
+                int indiceEncontrado = -1;
+
+                
+                for (int i = 0; i < rutasFiltro.size(); i++) {
+                    
+                    if (rutasFiltro.get(i).getOrigen().equalsIgnoreCase(viaje.getRuta().getOrigen()) && 
+                        rutasFiltro.get(i).getDestino().equalsIgnoreCase(viaje.getRuta().getDestino())) {
+                        indiceEncontrado = i;
+                        break;
+                    }
+                }
+
+                if (indiceEncontrado != -1) {
+                    totalViajes.set(indiceEncontrado, totalViajes.get(indiceEncontrado) + 1);
+                    totalIngresos.set(indiceEncontrado, totalIngresos.get(indiceEncontrado) + viaje.calcularTotal());
+                } else {
+                    // Si es la primera vez que aparece en el rango, lo añadimos
+                    rutasFiltro.add(rutaViaje);
+                    totalViajes.add(1);
+                    totalIngresos.add(viaje.calcularTotal());
+                }
             }
         } 
-        
-        //se refresca la tabla
+
+        // Se refresca la tabla con los datos agrupados correctamente
         filtrarTablaIngresosPorRuta(rutasFiltro, totalViajes, totalIngresos);
     }
+
     private void filtrarPorVehiculoIngresos(LocalDate desde, LocalDate hasta){
         ArrayList<Vehiculo> vehiculosFiltro = new ArrayList<>();
         ArrayList<Integer> totalViajes = new ArrayList<>();
         ArrayList<Double> totalIngresos = new ArrayList<>();
-        
-        //se filtra los viajes con fecha en el rango de desde a hasta
+
         for (Viaje viaje : viajes) {
-            //si la ruta ya se asigno se aumenta la cantidad de viajes y ingresos
-            if(vehiculosFiltro.contains(viaje.getVehiculo())){
-                //se extrae el indice 
-                int i = vehiculosFiltro.indexOf(viaje.getVehiculo());
-                totalViajes.set(i, totalViajes.get(i) + 1);
-                totalIngresos.set(i, totalIngresos.get(i) + viaje.calcularTotal());
-            }
-            
-            //se obtiene la fecha
             LocalDate f = viaje.getFecha();
-            if((desde.equals(f) || desde.isAfter(f)) && (hasta.equals(f) || hasta.isBefore(f))){
-                vehiculosFiltro.add(viaje.getVehiculo());
-                totalViajes.add(1);
-                totalIngresos.add(viaje.calcularTotal());
+
+            
+            if ((f.isAfter(desde) || f.equals(desde)) && (f.isBefore(hasta) || f.equals(hasta))) {
+
+                Vehiculo vehiculoViaje = viaje.getVehiculo();
+                int indiceEncontrado = -1;
+
+                
+                for (int i = 0; i < vehiculosFiltro.size(); i++) {
+                    if (vehiculosFiltro.get(i).getPlaca().equalsIgnoreCase(vehiculoViaje.getPlaca())) {
+                        indiceEncontrado = i;
+                        break;
+                    }
+                }
+
+                
+                if (indiceEncontrado != -1) {
+                    totalViajes.set(indiceEncontrado, totalViajes.get(indiceEncontrado) + 1);
+                    totalIngresos.set(indiceEncontrado, totalIngresos.get(indiceEncontrado) + viaje.calcularTotal());
+                } else {
+                    vehiculosFiltro.add(vehiculoViaje);
+                    totalViajes.add(1);
+                    totalIngresos.add(viaje.calcularTotal());
+                }
             }
         }    
-        
-        //Se refresca la tabla
+
+        // Se refresca la tabla
         filtrarTablaIngresosPorVehiculo(vehiculosFiltro, totalViajes, totalIngresos);
     }
      //EndRegion
