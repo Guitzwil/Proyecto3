@@ -153,8 +153,8 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rbtnRuta = new javax.swing.JRadioButton();
+        rbtnVehiculo = new javax.swing.JRadioButton();
         btnFiltrarReporte = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblReporteIngresos = new javax.swing.JTable();
@@ -1019,11 +1019,11 @@ public class FormTransportes extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel25.setText("Agrupar Por");
 
-        FiltrarReportePor.add(jRadioButton1);
-        jRadioButton1.setText("Ruta");
+        FiltrarReportePor.add(rbtnRuta);
+        rbtnRuta.setText("Ruta");
 
-        FiltrarReportePor.add(jRadioButton3);
-        jRadioButton3.setText("Vehículo");
+        FiltrarReportePor.add(rbtnVehiculo);
+        rbtnVehiculo.setText("Vehículo");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1031,16 +1031,16 @@ public class FormTransportes extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jRadioButton1)
+                .addComponent(rbtnRuta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jRadioButton3)
+                .addComponent(rbtnVehiculo)
                 .addGap(48, 48, 48))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jRadioButton1)
-                .addComponent(jRadioButton3))
+                .addComponent(rbtnRuta)
+                .addComponent(rbtnVehiculo))
         );
 
         btnFiltrarReporte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -2061,7 +2061,26 @@ public class FormTransportes extends javax.swing.JFrame {
     private void btnFiltrarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarReporteActionPerformed
         // TODO add your handling code here:
         
-        //se valida el tipo de filtro aplicado
+        try {
+            //se extraen los datos
+            LocalDate desde = dchDesdeFecha.getDate().toInstant().
+                    atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate hasta = dchHastaFecha.getDate().toInstant().
+                    atZone(ZoneId.systemDefault()).toLocalDate();
+        
+            //se valida el tipo de filtro a aplicar
+            if(rbtnRuta.isSelected()){
+                lblTextTipoFilro.setText("Reporte por Ruta");
+                filtrarPorRutaIngresos(desde,hasta);
+                return;
+            }
+            if(rbtnVehiculo.isSelected()){
+                lblTextTipoFilro.setText("Reporte por Vehículo");
+                filtrarPorVehiculoIngresos(desde,hasta);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al filtrar los ingresos: " + e.getMessage());
+        }
         
     }//GEN-LAST:event_btnFiltrarReporteActionPerformed
 
@@ -2334,6 +2353,54 @@ public class FormTransportes extends javax.swing.JFrame {
             });
         }          
     }
+    
+    private void filtrarTablaIngresosPorRuta(ArrayList<Ruta> r, 
+            ArrayList<Integer> tv, ArrayList<Double> ti){
+        
+        double total = 0;
+        
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new String[]{"Ruta", "KM", "Viajes", "Monto (Q)"}, 0);
+        
+        //se recorren las listas y se agrega cada elmento
+        for (int i = 0; i < r.size(); i++) {
+            model.addRow(new Object[]{
+                r.get(i).ruta(),
+                r.get(i).getKilometros(),
+                tv.get(i),
+                ti.get(i)
+            }); 
+            total += ti.get(i);
+        }
+        
+        //se le pasa el modelo a la tabla
+        tblReporteIngresos.setModel(model);
+        
+        lblTotalReporte.setText(convertirDosDecimales.format(total));
+    }
+    private void filtrarTablaIngresosPorVehiculo(ArrayList<Vehiculo> v, 
+            ArrayList<Integer> tv, ArrayList<Double> ti){
+        
+        double total = 0;
+        
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new String[]{"Placa", "Tipo", "Viajes", "Monto (Q)"}, 0);
+        
+        //se recorren las listas y se agrega cada elmento
+        for (int i = 0; i < v.size(); i++) {
+            model.addRow(new Object[]{
+                v.get(i).getPlaca(),
+                v.get(i).tipoVehiculo(),
+                tv.get(i),
+                ti.get(i)
+            }); 
+            total += ti.get(i);
+        }
+        //se le pasa el modelo a la tabla
+        tblReporteIngresos.setModel(model);        
+        
+        lblTotalReporte.setText(convertirDosDecimales.format(total));
+    }
     //EndRegion
     
     //#Region filtrar
@@ -2392,6 +2459,61 @@ public class FormTransportes extends javax.swing.JFrame {
         }
         
         return r;         
+    }
+    
+    private void filtrarPorRutaIngresos(LocalDate desde, LocalDate hasta){
+        ArrayList<Ruta> rutasFiltro = new ArrayList<>();
+        ArrayList<Integer> totalViajes = new ArrayList<>();
+        ArrayList<Double> totalIngresos = new ArrayList<>();
+        
+        //se filtra los viajes con fecha en el rango de desde a hasta
+        for (Viaje viaje : viajes) {
+            //si la ruta ya se asigno se aumenta la cantidad de viajes y ingresos
+            if(rutasFiltro.contains(viaje.getRuta())){
+                //se extrae el indice 
+                int i = rutasFiltro.indexOf(viaje.getRuta());
+                totalViajes.set(i, totalViajes.get(i) + 1);
+                totalIngresos.set(i, totalIngresos.get(i) + viaje.calcularTotal());
+            }
+            
+            //se obtiene la fecha
+            LocalDate f = viaje.getFecha();
+            if((desde.equals(f) || desde.isAfter(f)) && (hasta.equals(f) || hasta.isBefore(f))){
+                rutasFiltro.add(viaje.getRuta());
+                totalViajes.add(1);
+                totalIngresos.add(viaje.calcularTotal());
+            }
+        } 
+        
+        //se refresca la tabla
+        filtrarTablaIngresosPorRuta(rutasFiltro, totalViajes, totalIngresos);
+    }
+    private void filtrarPorVehiculoIngresos(LocalDate desde, LocalDate hasta){
+        ArrayList<Vehiculo> vehiculosFiltro = new ArrayList<>();
+        ArrayList<Integer> totalViajes = new ArrayList<>();
+        ArrayList<Double> totalIngresos = new ArrayList<>();
+        
+        //se filtra los viajes con fecha en el rango de desde a hasta
+        for (Viaje viaje : viajes) {
+            //si la ruta ya se asigno se aumenta la cantidad de viajes y ingresos
+            if(vehiculosFiltro.contains(viaje.getVehiculo())){
+                //se extrae el indice 
+                int i = vehiculosFiltro.indexOf(viaje.getVehiculo());
+                totalViajes.set(i, totalViajes.get(i) + 1);
+                totalIngresos.set(i, totalIngresos.get(i) + viaje.calcularTotal());
+            }
+            
+            //se obtiene la fecha
+            LocalDate f = viaje.getFecha();
+            if((desde.equals(f) || desde.isAfter(f)) && (hasta.equals(f) || hasta.isBefore(f))){
+                vehiculosFiltro.add(viaje.getVehiculo());
+                totalViajes.add(1);
+                totalIngresos.add(viaje.calcularTotal());
+            }
+        }    
+        
+        //Se refresca la tabla
+        filtrarTablaIngresosPorVehiculo(vehiculosFiltro, totalViajes, totalIngresos);
     }
      //EndRegion
     
@@ -2517,8 +2639,6 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2541,6 +2661,8 @@ public class FormTransportes extends javax.swing.JFrame {
     private javax.swing.JPanel pnlResumenMantenimiento;
     private javax.swing.JPanel pnlVehiculosAtencion;
     private javax.swing.JScrollPane psHistorialServicio;
+    private javax.swing.JRadioButton rbtnRuta;
+    private javax.swing.JRadioButton rbtnVehiculo;
     private javax.swing.JScrollPane spRutas;
     private javax.swing.JScrollPane spVehiculosMantenimiento;
     private javax.swing.JSpinner spnCantidad;
