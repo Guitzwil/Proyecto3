@@ -181,7 +181,11 @@
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="txtRecargo" min="-2" pref="368" max="-2" attributes="0"/>
-                                                      <Component id="btnRegistrarVehiculo" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="btnRegistrarVehiculo" min="-2" pref="182" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="btnRefrescarVehiculos" min="-2" pref="112" max="-2" attributes="0"/>
+                                                      </Group>
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="btnBuscarVehiculo" min="-2" pref="81" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
@@ -192,7 +196,7 @@
                                                           <Component id="btnHabilitarVehiculo" min="-2" pref="93" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -264,7 +268,10 @@
                                       <Component id="btnHabilitarVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnRegistrarVehiculo" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnRegistrarVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnRefrescarVehiculos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="600" max="-2" attributes="0"/>
                           </Group>
@@ -494,6 +501,17 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="btnRefrescarVehiculos">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Refrescar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescarVehiculosActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel4">
@@ -545,6 +563,7 @@
                                   <Component id="cbTipoLicencia" alignment="0" pref="360" max="32767" attributes="0"/>
                                   <Component id="txtNumeroLicencia" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="btnRefrescarPilotos" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="520" max="-2" attributes="0"/>
@@ -599,6 +618,8 @@
                                       <Component id="btnRegistrarPiloto" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnHabilitar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnRefrescarPilotos" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="72" max="32767" attributes="0"/>
@@ -791,6 +812,17 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JButton" name="btnRefrescarPilotos">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Refrescar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescarPilotosActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel5">
@@ -835,7 +867,7 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="btnHabilitarRuta" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="btnActualizarRuta" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnRefrescarRutas" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -866,7 +898,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnModificarRuta" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDarBajaRuta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnActualizarRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRefrescarRutas" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnHabilitarRuta" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="79" max="32767" attributes="0"/>
@@ -875,13 +907,16 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnActualizarRuta">
+                <Component class="javax.swing.JButton" name="btnRefrescarRutas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Actualizar"/>
+                    <Property name="text" type="java.lang.String" value="Refrescar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescarRutasActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
                 </Component>
@@ -1212,7 +1247,7 @@
                                           <Component id="pnlResumenMantenimiento" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="317" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1225,8 +1260,6 @@
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="pnlHistorialServicios" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="btnConsultarHistorial" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -1259,24 +1292,17 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnRegistrarServicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="cmbPlacaVehiculo" alignment="0" pref="200" max="32767" attributes="0"/>
+                                                  <Component id="dchFechaMantenimiento" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cbVehiculoMantenimiento" alignment="0" pref="200" max="32767" attributes="0"/>
                                               </Group>
+                                              <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnRegistrarServicio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtCostoMantenimiento" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtKilometrajeServicio" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cmbSeleccionarServicio" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <EmptySpace min="42" pref="348" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1296,30 +1322,18 @@
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel39" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel40" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jLabel42" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel40" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="cmbPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtKilometrajeServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="cbVehiculoMantenimiento" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel41" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jLabel43" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel41" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="cmbSeleccionarServicio" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="dchFechaMantenimiento" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel44" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jLabel42" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane5" min="-2" pref="146" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtCostoMantenimiento" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Component id="btnRegistrarServicio" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1333,14 +1347,9 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="pnlHistorialServicios" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="btnConsultarHistorial" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="pnlHistorialServicios" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -1392,15 +1401,36 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable2">
+                        <Component class="javax.swing.JTable" name="tblVehiculosRequierenMantenimiento">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="4" rowCount="4">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                              <Table columnCount="3" rowCount="4">
+                                <Column editable="true" title="Tipo" type="java.lang.String"/>
+                                <Column editable="true" title="Placa" type="java.lang.String"/>
+                                <Column editable="true" title="Kilometraje" type="java.lang.Double"/>
                               </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -1516,22 +1546,12 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel40">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="PLACA DEL VEH&#xcd;CULO"/>
+                    <Property name="text" type="java.lang.String" value="VEH&#xcd;CULO"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cmbPlacaVehiculo">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JComboBox" name="cbVehiculoMantenimiento">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Vehiculo&gt;"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel41">
@@ -1562,11 +1582,38 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="4">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                                <Column editable="true" title="Veh&#xed;culo" type="java.lang.String"/>
+                                <Column editable="true" title="Tipo" type="java.lang.String"/>
+                                <Column editable="true" title="Fecha" type="java.lang.String"/>
+                                <Column editable="true" title="Costo" type="java.lang.Double"/>
                               </Table>
+                            </Property>
+                            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                              <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                              </TableColumnModel>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -1578,62 +1625,20 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel42">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="KILOMETRAJE"/>
+                    <Property name="text" type="java.lang.String" value="Costo"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtKilometrajeServicio">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel43">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="SELECCIONAR SERVICIO"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnConsultarHistorial">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Consultar"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cmbSeleccionarServicio">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel44">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="DESCRIPCI&#xd3;N DEL MANTENIMIENTO"/>
-                  </Properties>
+                <Component class="javax.swing.JTextField" name="txtCostoMantenimiento">
                 </Component>
                 <Component class="javax.swing.JButton" name="btnRegistrarServicio">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registrar servicio"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarServicioActionPerformed"/>
+                  </Events>
                 </Component>
-                <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="txtDescripci&#xf3;nServicio">
-                      <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+                <Component class="com.toedter.calendar.JDateChooser" name="dchFechaMantenimiento">
                 </Component>
               </SubComponents>
             </Container>
@@ -1955,7 +1960,7 @@
                                           <Component id="dchFechaViaje" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="cbVehiculo" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
-                                      <Component id="btnRegistrarViaje" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnRegistrarViaje" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1980,8 +1985,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblTotalViajes" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1992,12 +1996,17 @@
                                       <Component id="lblCobroCalculado" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="cbTipoCarga" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                           <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnFinalizarViaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -2022,18 +2031,17 @@
                                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="spnCantidad" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="btnRegistrarViaje" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnFinalizarViaje" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblTotalViajes" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="51" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

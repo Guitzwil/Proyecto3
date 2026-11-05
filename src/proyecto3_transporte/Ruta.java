@@ -35,13 +35,8 @@ public class Ruta {
         return (this.destino.equalsIgnoreCase(destino));
     }
     
-    public void setEstado(){
-        if(estado){
-            estado = false;
-            return;
-        }
-        
-        estado = true;
+    public void setEstado(boolean estado){
+        this.estado = estado;
     }
     
     public String getOrigen() {

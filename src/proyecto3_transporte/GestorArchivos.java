@@ -53,7 +53,8 @@ public ArrayList<Viaje> cargarViajes(){
 public void guardarRutas(ArrayList<Ruta> ListaRutas){
     try(PrintWriter pw = new PrintWriter(new FileWriter(Archivo_Rutas))){
        for(Ruta r : ListaRutas){
-           pw.println(r.getOrigen() + "|" + r.getDestino() + "|" + r.getKilometros() + "|" + r.getTarifaBase());
+           pw.println(r.getOrigen() + "|" + r.getDestino() + "|" 
+                   + r.getKilometros() + "|" + r.getTarifaBase() + "|" + (r.isEstado() ? "s" : "n"));
        } 
     } catch(IOException e){
         System.err.println("Error al guardar el archivo de Rutas");
@@ -70,14 +71,16 @@ public ArrayList<Ruta> cargarRutas(){
         String linea;
         while((linea = br.readLine()) !=null){
             String[] partes = linea.split(",");
-            if(partes.length == 4){
-                String origen = partes[0];
-                String destino = partes[1];
-                double kilometros = Double.parseDouble(partes[2]);
-                double tarifaBase = Double.parseDouble(partes[3]);
-                lista.add(new Ruta(origen, destino, kilometros, tarifaBase));
-                
-            }
+            if(partes.length < 5 || partes.length > 5) continue;
+            
+            String origen = partes[0];
+            String destino = partes[1];
+            double kilometros = Double.parseDouble(partes[2]);
+            double tarifaBase = Double.parseDouble(partes[3]);
+            boolean estado = partes[4].equalsIgnoreCase("s");
+            
+            lista.add(new Ruta(origen, destino, kilometros, tarifaBase));
+            lista.get(lista.size() - 1).setEstado(estado);
         }
     }catch (IOException | NumberFormatException e){
         System.err.println("Error al leer el archivo de Rutas: " + e.getMessage());
@@ -171,7 +174,6 @@ public ArrayList<Vehiculo> cargarVehiculos() {
                     LocalDate fecha = LocalDate.parse(partes[1]);
                     double costo = Double.parseDouble(partes[2]);
 
-                    // Eheka pe vehículo oĩva la lista-pe placa rupive
                     Vehiculo vehiculoEncontrado = null;
                     for (Vehiculo v : listaVehiculos) {
                         if (v.getPlaca().equalsIgnoreCase(placaVehiculo)) {
