@@ -70,7 +70,7 @@ public ArrayList<Ruta> cargarRutas(){
     try(BufferedReader br =  new BufferedReader(new FileReader(archivo))){
         String linea;
         while((linea = br.readLine()) !=null){
-            String[] partes = linea.split(",");
+            String[] partes = linea.split("\\|");
             if(partes.length < 5 || partes.length > 5) continue;
             
             String origen = partes[0];
@@ -113,8 +113,8 @@ public ArrayList<Vehiculo> cargarVehiculos() {
     public void guardarPilotos(ArrayList<Piloto> listaPilotos) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(Archivo_Pilotos))) {
             for (Piloto p : listaPilotos) {
-                pw.println(p.getNombre() + "," + p.getDpi() + "," + p.getTelefono() + "," + 
-                        p.getNumeroLicencia() + "," + p.getTipoLicencia() + "," + p.getEstado());
+                pw.println(p.getNombre() + "|" + p.getDpi() + "|" + p.getTelefono() + "|" + 
+                        p.getNumeroLicencia() + "|" + p.getTipoLicencia() + "|" + p.getEstado());
                         
             }
         } catch (IOException e) {
@@ -130,7 +130,7 @@ public ArrayList<Vehiculo> cargarVehiculos() {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
+                String[] partes = linea.split("\\|");
                 if (partes.length > 7) continue;
                 
                 String nombre = partes[0];
@@ -153,7 +153,7 @@ public ArrayList<Vehiculo> cargarVehiculos() {
         try (PrintWriter pw = new PrintWriter(new FileWriter(Archivo_Mantenimiento))) {
             for (Mantenimiento m : listaMantenimientos) {
                 String placa = (m.getVehiculo() != null) ? m.getVehiculo().getPlaca() : "";
-                pw.println(placa + "," + m.getFecha() + "," + m.getCosto());
+                pw.println(placa + "|" + m.getFecha() + "|" + m.getCosto());
             }
         } catch (IOException e) {
             System.err.println("Error al guardar mantenimientos: " + e.getMessage());
@@ -168,7 +168,7 @@ public ArrayList<Vehiculo> cargarVehiculos() {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
+                String[] partes = linea.split("\\|");
                 if (partes.length == 3) {
                     String placaVehiculo = partes[0];
                     LocalDate fecha = LocalDate.parse(partes[1]);
